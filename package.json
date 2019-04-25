@@ -1,0 +1,22 @@
+{
+  "name": "tabuo",
+  "version": "0.0.1",
+  "description": "The guessing game as a mobile website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georgjaehnig/tabuo-react.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Georg Jaehnig",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/georgjaehnig/tabuo-react/issues"
+  },
+  "homepage": "https://github.com/georgjaehnig/tabuo-react#readme"
+}
