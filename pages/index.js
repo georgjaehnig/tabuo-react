@@ -28,6 +28,15 @@ class App extends Component {
   };
 
   undo = () => {
+    this.setState((state) => {
+      if (state.trace.length == 0) {
+        return state;
+      }
+      (state.trace.pop() 
+        ? state.stats.accepted = state.stats.accepted - 1 
+        : state.stats.rejected = state.stats.rejected - 1 )
+      return state;
+    });
   };
 
   next = () =>
