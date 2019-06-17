@@ -19,6 +19,7 @@ const actionsStyles = {
 class App extends Component {
   state = {
     cards: ["First", "Second", "Third"],
+    trace: [],
     stats: {
       accepted: 0,
       rejected: 0
@@ -36,15 +37,17 @@ class App extends Component {
   count = (direction) => {
     switch (direction) {
       case 'left':
-        this.setState(({stats}) => { 
-          stats.rejected = stats.rejected + 1;
-          return stats;
+        this.setState((state) => { 
+          state.trace.push(false);
+          state.stats.rejected = state.stats.rejected + 1;
+          return state;
         });
         break;
       case 'right':
-        this.setState(({stats}) => { 
-          stats.accepted = stats.accepted + 1;
-          return stats;
+        this.setState((state) => { 
+          state.trace.push(true);
+          state.stats.accepted = state.stats.accepted + 1;
+          return state;
         });
         break;
     }
