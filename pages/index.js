@@ -43,8 +43,7 @@ class App extends Component {
   };
 
   render() {
-    const {cards} = this.state;
-    const {stats} = this.state;
+    const {cards, stats} = this.state;
 
     return (
       <div>
