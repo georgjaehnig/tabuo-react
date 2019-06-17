@@ -31,22 +31,23 @@ class App extends Component {
   };
 
   next = () =>
-    this.setState(({cards}) => ({
-      cards: cards.slice(1, cards.length),
-    }));
+    this.setState((state) => {
+      state.trace.push(state.decision);
+      return state;
+    });
 
   count = (direction) => {
     switch (direction) {
       case 'left':
         this.setState((state) => { 
-          state.trace.push(false);
+          state.decision = false;
           state.stats.rejected = state.stats.rejected + 1;
           return state;
         });
         break;
       case 'right':
         this.setState((state) => { 
-          state.trace.push(true);
+          state.decision = true;
           state.stats.accepted = state.stats.accepted + 1;
           return state;
         });
@@ -55,14 +56,14 @@ class App extends Component {
   };
 
   render() {
-    const {cards, stats} = this.state;
+    const {cards, stats, trace} = this.state;
 
     return (
       <div>
         <div>Accepted: {stats.accepted}</div>
         <div>Rejected: {stats.rejected}</div>
         <div style={wrapperStyles}>
-          {cards.length > 0 ? (
+          {cards.length > trace.length ? (
             <div style={wrapperStyles}>
               <Swipeable
                 buttons={({left, right}) => (
@@ -75,9 +76,9 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <Card>{cards[0]}</Card>
+                <Card>{cards[trace.length]}</Card>
               </Swipeable>
-              {cards.length > 1 && <Card zIndex={-1}>{cards[1]}</Card>}
+              {cards.length-trace.length+1 > 1 && <Card zIndex={-1}>{cards[trace.length+1]}</Card>}
             </div>
           ) : (
             <Card zIndex={-2}>No more cards</Card>
