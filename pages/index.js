@@ -5,6 +5,7 @@ import Card from "./components/Card";
 import Button from "./components/Button";
 
 const wrapperStyles = {position: "relative", width: "250px", height: "250px"};
+
 const actionsStyles = {
   display: "flex",
   justifyContent: "space-between",
