@@ -20,6 +20,7 @@ class App extends Component {
   state = {
     cards: ["First", "Second", "Third", "Fourth", "Fifth"],
     trace: [],
+    decision: undefined,
     stats: {
       accepted: 0,
       rejected: 0
