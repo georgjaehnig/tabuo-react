@@ -29,7 +29,7 @@ class App extends Component {
   undo = () => {
   };
 
-  remove = () =>
+  next = () =>
     this.setState(({cards}) => ({
       cards: cards.slice(1, cards.length),
     }));
@@ -71,7 +71,7 @@ class App extends Component {
                     <Button onClick={right}>Accept</Button>
                   </div>
                 )}
-                onAfterSwipe={this.remove}
+                onAfterSwipe={this.next}
                 onSwipe={this.count}
               >
                 <Card>{cards[0]}</Card>
