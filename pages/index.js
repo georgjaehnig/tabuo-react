@@ -71,8 +71,8 @@ class App extends Component {
                     <Button onClick={right}>Accept</Button>
                   </div>
                 )}
-                onAfterSwipe={this.next}
                 onSwipe={this.count}
+                onAfterSwipe={this.next}
               >
                 <Card>{cards[0]}</Card>
               </Swipeable>
