@@ -5,9 +5,9 @@ import Card from "./components/Card";
 import Button from "./components/Button";
 
 const wrapperStyles = {
-	position: "relative", 
-	width: "250px", 
-	height: "250px"
+  position: "relative", 
+  width: "250px", 
+  height: "250px"
 };
 
 const actionsStyles = {
