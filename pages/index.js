@@ -21,6 +21,9 @@ class App extends Component {
     }
   };
 
+  undo = () => {
+  };
+
   remove = () =>
     this.setState(({cards}) => ({
       cards: cards.slice(1, cards.length),
@@ -57,6 +60,7 @@ class App extends Component {
                 buttons={({left, right}) => (
                   <div style={actionsStyles}>
                     <Button onClick={left}>Reject</Button>
+                    <Button onClick={this.undo}>Undo</Button>
                     <Button onClick={right}>Accept</Button>
                   </div>
                 )}
