@@ -14,6 +14,10 @@ const actionsStyles = {
 class App extends Component {
   state = {
     cards: ["First", "Second", "Third"],
+    stats: {
+      accepted: 0,
+      rejected: 0
+    }
   };
 
   remove = () =>
@@ -21,11 +25,31 @@ class App extends Component {
       cards: cards.slice(1, cards.length),
     }));
 
+  count = (direction) => {
+    switch (direction) {
+      case 'left':
+        this.setState(({stats}) => { 
+          stats.rejected = stats.rejected + 1;
+          return stats;
+        });
+        break;
+      case 'right':
+        this.setState(({stats}) => { 
+          stats.accepted = stats.accepted + 1;
+          return stats;
+        });
+        break;
+    }
+  };
+
   render() {
     const {cards} = this.state;
+    const {stats} = this.state;
 
     return (
       <div>
+        <div>Accepted: {stats.accepted}</div>
+        <div>Rejected: {stats.rejected}</div>
         <div style={wrapperStyles}>
           {cards.length > 0 ? (
             <div style={wrapperStyles}>
@@ -37,6 +61,7 @@ class App extends Component {
                   </div>
                 )}
                 onAfterSwipe={this.remove}
+                onSwipe={this.count}
               >
                 <Card>{cards[0]}</Card>
               </Swipeable>
