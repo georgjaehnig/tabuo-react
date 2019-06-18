@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import Swipeable from "react-swipy"
 
+import Swipeable from "react-swipy"
 import Card from "./components/Card";
 import Button from "./components/Button";
 
