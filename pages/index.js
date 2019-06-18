@@ -1,6 +1,13 @@
 import React, {Component} from "react";
 import Head from 'next/head';
 
+import { Card, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
+
+import "rbx/index.sass";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+
 import SwipySwipeable from "react-swipy"
 import SwipyCard from "./components/Card";
 import SwipyButton from "./components/Button";
