@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import Head from 'next/head';
 
-import Swipeable from "react-swipy"
-import Card from "./components/Card";
-import Button from "./components/Button";
+import SwipySwipeable from "react-swipy"
+import SwipyCard from "./components/Card";
+import SwipyButton from "./components/Button";
 
 const wrapperStyles = {
   position: "relative", 
@@ -79,23 +79,23 @@ class App extends Component {
         <div style={wrapperStyles}>
           {cards.length > trace.length ? (
             <div style={wrapperStyles}>
-              <Swipeable
+              <SwipySwipeable
                 buttons={({left, right}) => (
                   <div style={actionsStyles}>
-                    <Button onClick={left}>Reject</Button>
-                    <Button onClick={this.undo}>Undo</Button>
-                    <Button onClick={right}>Accept</Button>
+                    <SwipyButton onClick={left}>Reject</SwipyButton>
+                    <SwipyButton onClick={this.undo}>Undo</SwipyButton>
+                    <SwipyButton onClick={right}>Accept</SwipyButton>
                   </div>
                 )}
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <Card>{cards[trace.length]}</Card>
-              </Swipeable>
-              {cards.length-trace.length+1 > 1 && <Card zIndex={-1}>{cards[trace.length+1]}</Card>}
+                <SwipyCard>{cards[trace.length]}</SwipyCard>
+              </SwipySwipeable>
+              {cards.length-trace.length+1 > 1 && <SwipyCard zIndex={-1}>{cards[trace.length+1]}</SwipyCard>}
             </div>
           ) : (
-            <Card zIndex={-2}>No more cards</Card>
+            <SwipyCard zIndex={-2}>No more cards</SwipyCard>
           )}
         </div>
       </div>
