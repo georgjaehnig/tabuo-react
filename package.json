@@ -23,9 +23,9 @@
   },
   "homepage": "https://github.com/georgjaehnig/tabuo-react#readme",
   "dependencies": {
-    "bulma": "^0.7.5",
     "next": "^8.1.0",
     "react": "^16.8.6",
+    "react-bulma-components": "^2.3.0",
     "react-dom": "^16.8.6",
     "react-swipy": "0.0.6",
     "styled-components": "^4.3.1"
