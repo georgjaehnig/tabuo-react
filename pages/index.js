@@ -81,30 +81,57 @@ class App extends Component {
           <title>Tabuo</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </Head>
-        <div>Accepted: {stats.accepted}</div>
-        <div>Rejected: {stats.rejected}</div>
-        <div style={wrapperStyles}>
-          {cards.length > trace.length ? (
-            <div style={wrapperStyles}>
-              <SwipySwipeable
-                buttons={({left, right}) => (
-                  <div style={actionsStyles}>
-                    <SwipyButton onClick={left}>Reject</SwipyButton>
-                    <SwipyButton onClick={this.undo}>Undo</SwipyButton>
-                    <SwipyButton onClick={right}>Accept</SwipyButton>
-                  </div>
-                )}
-                onSwipe={this.count}
-                onAfterSwipe={this.next}
-              >
-                <SwipyCard>{cards[trace.length]}</SwipyCard>
-              </SwipySwipeable>
-              {cards.length-trace.length+1 > 1 && <SwipyCard zIndex={-1}>{cards[trace.length+1]}</SwipyCard>}
-            </div>
-          ) : (
-            <SwipyCard zIndex={-2}>No more cards</SwipyCard>
-          )}
-        </div>
+        <Container>
+
+          <Level breakpoint="mobile">
+            <Level.Item textColor="danger">
+             <FontAwesomeIcon icon={faTimesCircle} />
+             <div>{stats.rejected}</div>
+            </Level.Item>
+            <Level.Item textSize={3}> 🤭 </Level.Item>
+            <Level.Item textColor="success">
+             <FontAwesomeIcon icon={faCheckCircle} />
+             <div>{stats.accepted}</div>
+            </Level.Item>
+          </Level>
+
+          <Card>
+            <Card.Header textAlign="centered">
+              <Card.Header.Title >Schuhe</Card.Header.Title>
+            </Card.Header>
+            <Card.Content textAlign="centered">
+              <List as="ul">
+                <List.Item as="li"> one </List.Item>
+                <List.Item as="li"> one </List.Item>
+                <List.Item as="li"> one </List.Item>
+              </List>
+            </Card.Content>
+
+          </Card>
+
+          <div style={wrapperStyles}>
+            {cards.length > trace.length ? (
+              <div style={wrapperStyles}>
+                <SwipySwipeable
+                  buttons={({left, right}) => (
+                    <div style={actionsStyles}>
+                      <SwipyButton onClick={left}>Reject</SwipyButton>
+                      <SwipyButton onClick={this.undo}>Undo</SwipyButton>
+                      <SwipyButton onClick={right}>Accept</SwipyButton>
+                    </div>
+                  )}
+                  onSwipe={this.count}
+                  onAfterSwipe={this.next}
+                >
+                  <SwipyCard>{cards[trace.length]}</SwipyCard>
+                </SwipySwipeable>
+                {cards.length-trace.length+1 > 1 && <SwipyCard zIndex={-1}>{cards[trace.length+1]}</SwipyCard>}
+              </div>
+            ) : (
+              <SwipyCard zIndex={-2}>No more cards</SwipyCard>
+            )}
+          </div>
+        </Container>
       </div>
     );
   }
