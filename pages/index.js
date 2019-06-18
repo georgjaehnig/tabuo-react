@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Head from 'next/head';
 
 import Swipeable from "react-swipy"
 import Card from "./components/Card";
@@ -69,6 +70,10 @@ class App extends Component {
 
     return (
       <div>
+        <Head>
+          <title>Tabuo</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        </Head>
         <div>Accepted: {stats.accepted}</div>
         <div>Rejected: {stats.rejected}</div>
         <div style={wrapperStyles}>
