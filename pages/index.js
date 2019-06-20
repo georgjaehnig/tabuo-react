@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import Head from 'next/head';
 
+import arrayShuffle from 'array-shuffle';
+
 import { Button, Card, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
 
 import "rbx/index.sass";
@@ -30,7 +32,7 @@ const actionsStyles = {
 
 class App extends Component {
   state = {
-    cards: Cards,
+    cards: arrayShuffle(Cards),
     trace: [],
     decision: undefined,
     stats: {
