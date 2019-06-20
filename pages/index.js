@@ -27,6 +27,28 @@ const actionsStyles = {
 class App extends Component {
   state = {
     cards: ["First", "Second", "Third", "Fourth", "Fifth"],
+    cards2: [
+      { target: 'domo',
+        tabuoj: [
+          'ĉambro',
+          'loĝi',
+          'urbo',
+          'tegmento',
+          'konstruaĵo'
+        ],
+        author: 'Rob Ketlaer'
+      },
+      { target: 'aŭto',
+        tabuoj: [
+          'veturi',
+          'strato',
+          'motoro',
+          'rapida',
+          'trafiko'
+        ],
+        author: 'Rob Ketlaer'
+      },
+    ],
     trace: [],
     decision: undefined,
     stats: {
