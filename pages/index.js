@@ -6,6 +6,7 @@ import { Button, Card, Container, Columns, Column, Level, LevelItem, List } from
 import "rbx/index.sass";
 
 import "../src/App.sass";
+import Cards from "../src/cards.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
@@ -29,38 +30,7 @@ const actionsStyles = {
 
 class App extends Component {
   state = {
-    cards: [
-      { target: 'domo',
-        taboos: [
-          'ĉambro',
-          'loĝi',
-          'urbo',
-          'tegmento',
-          'konstruaĵo'
-        ],
-        author: 'Rob Ketlaer'
-      },
-      { target: 'aŭto',
-        taboos: [
-          'veturi',
-          'strato',
-          'motoro',
-          'rapida',
-          'trafiko'
-        ],
-        author: 'Rob Ketlaer'
-      },
-      { target: 'fenestro',
-        taboos: [
-          'pordo',
-          'domo',
-          'vitro',
-          'kurteno',
-          'ĉambro'
-        ],
-        author: 'Rob Ketlaer'
-      },
-    ],
+    cards: Cards,
     trace: [],
     decision: undefined,
     stats: {
