@@ -26,7 +26,8 @@ const actionsStyles = {
 
 class App extends Component {
   state = {
-    cards: ["First", "Second", "Third", "Fourth", "Fifth"],
+    //cards: ["First", "Second", "Third", "Fourth", "Fifth"],
+    cards: ["First", "Second", ],
     cards2: [
       { target: 'domo',
         taboos: [
