@@ -86,11 +86,13 @@ class App extends Component {
           <Level breakpoint="mobile">
             <Level.Item textColor="danger">
              <FontAwesomeIcon icon={faTimesCircle} />
+             <span>&nbsp;</span>
              <div>{stats.rejected}</div>
             </Level.Item>
             <Level.Item textSize={3}> 🤭 </Level.Item>
             <Level.Item textColor="success">
              <FontAwesomeIcon icon={faCheckCircle} />
+             <span>&nbsp;</span>
              <div>{stats.accepted}</div>
             </Level.Item>
           </Level>
