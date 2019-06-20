@@ -151,7 +151,7 @@ class App extends Component {
               {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards2[trace.length+1]} /> }
             </div>
             ) : (
-            <Card zIndex={-2}>No more cards</Card>
+            <TabuoCard zIndex={-2} />
           )}
           </div>
         </Container>
