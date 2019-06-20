@@ -132,16 +132,16 @@ class App extends Component {
               onSwipe={this.count}
               onAfterSwipe={this.next}
             >
-            <Card>
-              <Card.Header>
-                <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
-              </Card.Header>
-              <Card.Content textAlign="centered">
-                <List as="ul">
-                  {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
-                </List>
-              </Card.Content>
-            </Card>
+              <Card>
+                <Card.Header>
+                  <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
+                </Card.Header>
+                <Card.Content textAlign="centered">
+                  <List as="ul">
+                    {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
+                  </List>
+                </Card.Content>
+              </Card>
             </SwipySwipeable>
             ) : (
             <Card zIndex={-2}>No more cards</Card>
