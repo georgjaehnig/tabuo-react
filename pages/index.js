@@ -5,6 +5,8 @@ import { Button, Card, Container, Columns, Column, Level, LevelItem, List } from
 
 import "rbx/index.sass";
 
+import "../src/App.sass";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 
