@@ -98,8 +98,8 @@ class App extends Component {
           </Level>
 
           <Card>
-            <Card.Header textAlign="centered">
-              <Card.Header.Title >Schuhe</Card.Header.Title>
+            <Card.Header>
+              <Card.Header.Title align="centered">Schuhe</Card.Header.Title>
             </Card.Header>
             <Card.Content textAlign="centered">
               <List as="ul">
