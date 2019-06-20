@@ -121,28 +121,30 @@ class App extends Component {
           </Level>
 
           {cards.length > trace.length ? (
-            <SwipySwipeable
-              buttons={({left, right}) => (
-                <div style={actionsStyles}>
-                  <Button onClick={left}>Reject</Button>
-                  <Button onClick={this.undo}>Undo</Button>
-                  <Button onClick={right}>Accept</Button>
-                </div>
-              )}
-              onSwipe={this.count}
-              onAfterSwipe={this.next}
-            >
-              <Card>
-                <Card.Header>
-                  <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
-                </Card.Header>
-                <Card.Content textAlign="centered">
-                  <List as="ul">
-                    {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
-                  </List>
-                </Card.Content>
-              </Card>
-            </SwipySwipeable>
+            <div>
+              <SwipySwipeable
+                buttons={({left, right}) => (
+                  <div style={actionsStyles}>
+                    <Button onClick={left}>Reject</Button>
+                    <Button onClick={this.undo}>Undo</Button>
+                    <Button onClick={right}>Accept</Button>
+                  </div>
+                )}
+                onSwipe={this.count}
+                onAfterSwipe={this.next}
+              >
+                <Card>
+                  <Card.Header>
+                    <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
+                  </Card.Header>
+                  <Card.Content textAlign="centered">
+                    <List as="ul">
+                      {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
+                    </List>
+                  </Card.Content>
+                </Card>
+              </SwipySwipeable>
+            </div>
             ) : (
             <Card zIndex={-2}>No more cards</Card>
           )}
