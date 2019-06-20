@@ -153,28 +153,6 @@ class App extends Component {
             ) : (
             <Card zIndex={-2}>No more cards</Card>
           )}
-
-          <div style={wrapperStyles}>
-            {cards.length > trace.length ? (
-              <div style={wrapperStyles}>
-                <SwipySwipeable
-                  buttons={({left, right}) => (
-                    <div style={actionsStyles}>
-                      <SwipyButton onClick={left}>Reject</SwipyButton>
-                      <SwipyButton onClick={this.undo}>Undo</SwipyButton>
-                      <SwipyButton onClick={right}>Accept</SwipyButton>
-                    </div>
-                  )}
-                  onSwipe={this.count}
-                  onAfterSwipe={this.next}
-                >
-                  <SwipyCard>{cards[trace.length]}</SwipyCard>
-                </SwipySwipeable>
-                {cards.length-trace.length+1 > 1 && <SwipyCard zIndex={-1}>{cards[trace.length+1]}</SwipyCard>}
-              </div>
-            ) : (
-              <SwipyCard zIndex={-2}>No more cards</SwipyCard>
-            )}
           </div>
         </Container>
       </div>
