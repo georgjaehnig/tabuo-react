@@ -120,17 +120,20 @@ class App extends Component {
             </Level.Item>
           </Level>
 
-          <Card>
-            <Card.Header>
-              <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
-            </Card.Header>
-            <Card.Content textAlign="centered">
-              <List as="ul">
-                {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
-              </List>
-            </Card.Content>
-
-          </Card>
+          {cards.length > trace.length ? (
+            <Card>
+              <Card.Header>
+                <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
+              </Card.Header>
+              <Card.Content textAlign="centered">
+                <List as="ul">
+                  {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
+                </List>
+              </Card.Content>
+            </Card>
+            ) : (
+            <Card zIndex={-2}>No more cards</Card>
+          )}
 
           <div style={wrapperStyles}>
             {cards.length > trace.length ? (
