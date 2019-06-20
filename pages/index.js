@@ -51,6 +51,16 @@ class App extends Component {
         ],
         author: 'Rob Ketlaer'
       },
+      { target: 'fenestro',
+        taboos: [
+          'pordo',
+          'domo',
+          'vitro',
+          'kurteno',
+          'ĉambro'
+        ],
+        author: 'Rob Ketlaer'
+      },
     ],
     trace: [],
     decision: undefined,
