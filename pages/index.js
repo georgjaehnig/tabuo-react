@@ -121,13 +121,11 @@ class App extends Component {
 
           <Card>
             <Card.Header>
-              <Card.Header.Title align="centered">Schuhe</Card.Header.Title>
+              <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
             </Card.Header>
             <Card.Content textAlign="centered">
               <List as="ul">
-                <List.Item as="li"> one </List.Item>
-                <List.Item as="li"> one </List.Item>
-                <List.Item as="li"> one </List.Item>
+                {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
               </List>
             </Card.Content>
 
