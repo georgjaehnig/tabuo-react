@@ -133,8 +133,9 @@ class App extends Component {
             </Level.Item>
           </Level>
 
+          <div style={wrapperStyles}>
           {cards.length > trace.length ? (
-            <div>
+            <div style={wrapperStyles}>
               <SwipySwipeable
                 buttons={({left, right}) => (
                   <div style={actionsStyles}>
