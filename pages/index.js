@@ -24,12 +24,6 @@ const wrapperStyles = {
   height: "400px",
 };
 
-const actionsStyles = {
-  display: "flex",
-  justifyContent: "space-between",
-  marginTop: 12,
-};
-
 class App extends Component {
   state = {
     cards: arrayShuffle(Cards),
@@ -108,11 +102,17 @@ class App extends Component {
             <div style={wrapperStyles}>
               <SwipySwipeable
                 buttons={({left, right}) => (
-                  <div style={actionsStyles}>
-                    <Button textColor="danger" textSize="3" onClick={left}> <FontAwesomeIcon icon={faTimesCircle} /> </Button>
-                    <Button textColor="info" textSize="3" onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
-                    <Button textColor="success" textSize="3" onClick={right}> <FontAwesomeIcon icon={faCheckCircle} /> </Button>
-                  </div>
+                  <Level breakpoint="mobile">
+                    <Level.Item>
+                      <Button textColor="danger" textSize="3" onClick={left}> <FontAwesomeIcon icon={faTimesCircle} /> </Button>
+                    </Level.Item>
+                    <Level.Item>
+                      <Button textColor="info" textSize="3" onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
+                    </Level.Item>
+                    <Level.Item textColor="success">
+                      <Button textColor="success" textSize="3" onClick={right}> <FontAwesomeIcon icon={faCheckCircle} /> </Button>
+                    </Level.Item>
+                  </Level>
                 )}
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
