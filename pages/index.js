@@ -105,7 +105,7 @@ class App extends Component {
                       <Button textColor="danger" textSize="3" onClick={left}> <FontAwesomeIcon icon={faTimesCircle} /> </Button>
                     </Level.Item>
                     <Level.Item>
-                      <Button textColor="info" textSize="3" onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
+                      <Button disabled={trace.length==0} textColor="info" textSize="3" onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
                       <Button textColor="success" textSize="3" onClick={right}> <FontAwesomeIcon icon={faCheckCircle} /> </Button>
