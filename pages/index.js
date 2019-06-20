@@ -29,7 +29,7 @@ class App extends Component {
     cards: ["First", "Second", "Third", "Fourth", "Fifth"],
     cards2: [
       { target: 'domo',
-        tabuoj: [
+        taboos: [
           'ĉambro',
           'loĝi',
           'urbo',
@@ -39,7 +39,7 @@ class App extends Component {
         author: 'Rob Ketlaer'
       },
       { target: 'aŭto',
-        tabuoj: [
+        taboos: [
           'veturi',
           'strato',
           'motoro',
