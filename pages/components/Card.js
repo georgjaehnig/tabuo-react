@@ -1,5 +1,3 @@
-import React from "react";
-
 const cardStyles = {
   background: "whitesmoke",
   borderRadius: 3,

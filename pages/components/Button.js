@@ -1,5 +1,3 @@
-import React from "react";
-
 const buttonStyles = {
   padding: "16px 24px",
   background: "whitesmoke",
