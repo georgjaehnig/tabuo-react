@@ -14,8 +14,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/free-solid-svg-icons'
 
 import SwipySwipeable from "react-swipy"
-import SwipyCard from "./components/Card";
-import SwipyButton from "./components/Button";
 import TabuoCard from "./components/TabuoCard";
 
 const wrapperStyles = {
