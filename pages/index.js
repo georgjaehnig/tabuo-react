@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Head from 'next/head';
 
-import { Card, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
+import { Button, Card, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
 
 import "rbx/index.sass";
 
@@ -121,6 +121,17 @@ class App extends Component {
           </Level>
 
           {cards.length > trace.length ? (
+            <SwipySwipeable
+              buttons={({left, right}) => (
+                <div style={actionsStyles}>
+                  <Button onClick={left}>Reject</Button>
+                  <Button onClick={this.undo}>Undo</Button>
+                  <Button onClick={right}>Accept</Button>
+                </div>
+              )}
+              onSwipe={this.count}
+              onAfterSwipe={this.next}
+            >
             <Card>
               <Card.Header>
                 <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
@@ -131,6 +142,7 @@ class App extends Component {
                 </List>
               </Card.Content>
             </Card>
+            </SwipySwipeable>
             ) : (
             <Card zIndex={-2}>No more cards</Card>
           )}
