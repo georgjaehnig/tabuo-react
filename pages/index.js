@@ -95,7 +95,7 @@ class App extends Component {
   };
 
   render() {
-    const {cards, stats, trace} = this.state;
+    const {cards, cards2, stats, trace} = this.state;
 
     return (
       <div>
