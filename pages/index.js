@@ -11,7 +11,7 @@ import "../src/App.sass";
 import Cards from "../src/cards.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle, faCheckCircle, faSmileWink } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/free-solid-svg-icons'
 
 import SwipySwipeable from "react-swipy"
 import SwipyCard from "./components/Card";
@@ -109,9 +109,9 @@ class App extends Component {
               <SwipySwipeable
                 buttons={({left, right}) => (
                   <div style={actionsStyles}>
-                    <Button onClick={left}>Reject</Button>
-                    <Button onClick={this.undo}>Undo</Button>
-                    <Button onClick={right}>Accept</Button>
+                    <Button textColor="danger" textSize="3" onClick={left}> <FontAwesomeIcon icon={faTimesCircle} /> </Button>
+                    <Button textColor="info" textSize="3" onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
+                    <Button textColor="success" textSize="3" onClick={right}> <FontAwesomeIcon icon={faCheckCircle} /> </Button>
                   </div>
                 )}
                 onSwipe={this.count}
