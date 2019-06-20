@@ -11,7 +11,7 @@ import "../src/App.sass";
 import Cards from "../src/cards.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
+import { faTimesCircle, faCheckCircle, faSmileWink } from '@fortawesome/free-solid-svg-icons'
 
 import SwipySwipeable from "react-swipy"
 import SwipyCard from "./components/Card";
@@ -95,7 +95,7 @@ class App extends Component {
              <span>&nbsp;</span>
              <div>{stats.rejected}</div>
             </Level.Item>
-            <Level.Item textSize={3}> 🤭 </Level.Item>
+            <Level.Item textSize={3}><FontAwesomeIcon icon={faSmileWink} /> </Level.Item>
             <Level.Item textColor="success">
              <FontAwesomeIcon icon={faCheckCircle} />
              <span>&nbsp;</span>
