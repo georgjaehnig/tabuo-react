@@ -29,9 +29,7 @@ const actionsStyles = {
 
 class App extends Component {
   state = {
-    //cards: ["First", "Second", "Third", "Fourth", "Fifth"],
-    cards: ["First", "Second", ],
-    cards2: [
+    cards: [
       { target: 'domo',
         taboos: [
           'ĉambro',
@@ -109,7 +107,7 @@ class App extends Component {
   };
 
   render() {
-    const {cards, cards2, stats, trace} = this.state;
+    const {cards, stats, trace} = this.state;
 
     return (
       <div>
@@ -147,9 +145,9 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <TabuoCard card={cards2[trace.length]} />
+                <TabuoCard card={cards[trace.length]} />
               </SwipySwipeable>
-              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards2[trace.length+1]} /> }
+              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards[trace.length+1]} /> }
             </div>
             ) : (
             <TabuoCard zIndex={-2} />
