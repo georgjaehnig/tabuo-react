@@ -1,6 +1,6 @@
 import { Card, List } from 'rbx';
 
-const TabuoCard = ({ zIndex = 0, card, children }) => (
+const TabuoCard = ({ zIndex = 0, card }) => (
   <div style={{ ...zIndex }}>
     <Card>
       <Card.Header>
