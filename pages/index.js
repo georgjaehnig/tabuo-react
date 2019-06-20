@@ -18,7 +18,7 @@ import TabuoCard from "./components/TabuoCard";
 const wrapperStyles = {
   position: "relative", 
   width: "250px", 
-  height: "250px"
+  height: "400px",
 };
 
 const actionsStyles = {
