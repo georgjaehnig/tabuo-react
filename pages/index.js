@@ -13,6 +13,7 @@ import { faTimesCircle, faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import SwipySwipeable from "react-swipy"
 import SwipyCard from "./components/Card";
 import SwipyButton from "./components/Button";
+import TabuoCard from "./components/TabuoCard";
 
 const wrapperStyles = {
   position: "relative", 
@@ -145,29 +146,9 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <Card>
-                  <Card.Header>
-                    <Card.Header.Title align="centered">{cards2[trace.length].target}</Card.Header.Title>
-                  </Card.Header>
-                  <Card.Content textAlign="centered">
-                    <List as="ul">
-                      {cards2[trace.length].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
-                    </List>
-                  </Card.Content>
-                </Card>
+                <TabuoCard card={cards2[trace.length]} />
               </SwipySwipeable>
-              {cards.length-trace.length+1 > 1 &&  
-                <Card zIndex={-1}>
-                  <Card.Header>
-                    <Card.Header.Title align="centered">{cards2[trace.length+1].target}</Card.Header.Title>
-                  </Card.Header>
-                  <Card.Content textAlign="centered">
-                    <List as="ul">
-                      {cards2[trace.length+1].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
-                    </List>
-                  </Card.Content>
-                </Card>
-              }
+              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards2[trace.length+1]} /> }
             </div>
             ) : (
             <Card zIndex={-2}>No more cards</Card>
