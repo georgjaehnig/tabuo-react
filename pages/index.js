@@ -146,6 +146,18 @@ class App extends Component {
                   </Card.Content>
                 </Card>
               </SwipySwipeable>
+              {cards.length-trace.length+1 > 1 &&  
+                <Card zIndex={-1}>
+                  <Card.Header>
+                    <Card.Header.Title align="centered">{cards2[trace.length+1].target}</Card.Header.Title>
+                  </Card.Header>
+                  <Card.Content textAlign="centered">
+                    <List as="ul">
+                      {cards2[trace.length+1].taboos.map((item, key) => <List.Item as="li">{item}</List.Item> )}
+                    </List>
+                  </Card.Content>
+                </Card>
+              }
             </div>
             ) : (
             <Card zIndex={-2}>No more cards</Card>
