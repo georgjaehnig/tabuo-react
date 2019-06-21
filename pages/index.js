@@ -91,17 +91,7 @@ class App extends Component {
         <Container>
 
           <Level breakpoint="mobile">
-            <Level.Item textColor="danger">
-             <FontAwesomeIcon icon={faTimesCircle} />
-             <span>&nbsp;</span>
-             <div>{stats.rejected}</div>
-            </Level.Item>
             <Level.Item textSize={3}><FontAwesomeIcon icon={faSmileWink} /> </Level.Item>
-            <Level.Item textColor="success">
-             <FontAwesomeIcon icon={faCheckCircle} />
-             <span>&nbsp;</span>
-             <div>{stats.accepted}</div>
-            </Level.Item>
           </Level>
 
           <div style={wrapperStyles}>
@@ -112,13 +102,21 @@ class App extends Component {
                 buttons={({left, right}) => (
                   <Level breakpoint="mobile" style={{position: 'absolute', left: 50, width: this.state.windowWidth-100 }}>
                     <Level.Item>
-                      <Button textColor="danger" textSize={3} onClick={left}> <FontAwesomeIcon icon={faTimesCircle} /> </Button>
+                      <Button textColor="danger" textSize={4} onClick={left}> 
+                        <FontAwesomeIcon icon={faTimesCircle} /> 
+                        <span>&nbsp;</span>
+                        <div>{stats.rejected}</div>
+                      </Button>
                     </Level.Item>
                     <Level.Item>
                       <Button disabled={trace.length==0} textColor="info" textSize={5} onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
-                      <Button textColor="success" textSize={3} onClick={right}> <FontAwesomeIcon icon={faCheckCircle} /> </Button>
+                      <Button textColor="success" textSize={4} onClick={right}>
+                        <FontAwesomeIcon icon={faCheckCircle} /> 
+                        <span>&nbsp;</span>
+                        <div>{stats.accepted}</div>
+                  </Button>
                     </Level.Item>
                   </Level>
                 )}
