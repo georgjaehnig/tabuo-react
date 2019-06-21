@@ -71,6 +71,14 @@ class App extends Component {
     }
   };
 
+ componentDidMount() {
+   this.setState((state) => {
+     state.windowWidth = window.innerWidth;
+     return state;
+   });
+ };
+
+
   render() {
     const {cards, stats, trace} = this.state;
 
