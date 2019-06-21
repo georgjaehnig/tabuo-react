@@ -36,6 +36,6 @@ const TabuoCard = ({ zIndex = 0, windowWidth, card }) => {
       </Card>
     )}
   </div>
-);
+};
 
 export default TabuoCard;
