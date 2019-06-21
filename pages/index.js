@@ -30,7 +30,8 @@ class App extends Component {
     stats: {
       accepted: 0,
       rejected: 0
-    }
+    },
+    windowWidth: undefined,
   };
 
   undo = () => {
