@@ -109,7 +109,7 @@ class App extends Component {
             <div style={wrapperStyles}>
               <SwipySwipeable
                 buttons={({left, right}) => (
-                  <Level breakpoint="mobile">
+                  <Level breakpoint="mobile" style={{position: 'absolute', left: 50, width: this.state.windowWidth-100 }}>
                     <Level.Item>
                       <Button textColor="danger" textSize={3} onClick={left}> <FontAwesomeIcon icon={faTimesCircle} /> </Button>
                     </Level.Item>
@@ -124,9 +124,9 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <TabuoCard card={cards[trace.length]} />
+                <TabuoCard card={cards[trace.length]} windowWidth={this.state.windowWidth} />
               </SwipySwipeable>
-              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards[trace.length+1]} /> }
+              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards[trace.length+1]} windowWidth={this.state.windowWidth} /> }
             </div>
             ) : (
             <TabuoCard zIndex={-2} />

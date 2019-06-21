@@ -5,13 +5,18 @@ const cardStyles = {
   userSelect: "none",
   position: "absolute",
   top: 50,
-  left: 40,
-  width: 300,
+  left: 50,
   height: 500,
 };
 
-const TabuoCard = ({ zIndex = 0, card }) => (
-  <div style={{ ...cardStyles, zIndex }}>
+const TabuoCard = ({ zIndex = 0, windowWidth, card }) => {
+
+  if (!windowWidth) {
+    return <div></div>; 
+  }
+  let width = windowWidth-100;
+  
+  return <div style={{ ...cardStyles, width, zIndex }}>
     { card ? (
       <Card>
         <Card.Header>
