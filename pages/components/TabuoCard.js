@@ -7,7 +7,7 @@ const cardStyles = {
   top: 50,
   left: 40,
   width: 300,
-  heigth: 500,
+  height: 500,
 };
 
 const TabuoCard = ({ zIndex = 0, card }) => (
