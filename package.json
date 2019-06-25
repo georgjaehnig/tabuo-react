@@ -38,5 +38,7 @@
     "react-swipy": "0.0.6",
     "styled-components": "^4.3.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "next-compose": "0.0.2"
+  }
 }
