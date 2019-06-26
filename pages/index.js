@@ -88,7 +88,7 @@ class App extends Component {
   timerStartPause = () => {
     this.setState((state) => {
       // Start.
-      if :((!state.timer.started) && (!state.timer.paused)) {
+      if ((!state.timer.started) && (!state.timer.paused)) {
         // Reset stats.
         state.stats.accepted = 0;
         state.stats.rejected = 0;
