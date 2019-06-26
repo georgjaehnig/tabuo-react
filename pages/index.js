@@ -116,7 +116,7 @@ class App extends Component {
                         <FontAwesomeIcon icon={faCheckCircle} /> 
                         <span>&nbsp;</span>
                         <div>{stats.accepted}</div>
-                  </Button>
+                      </Button>
                     </Level.Item>
                   </Level>
                 )}
