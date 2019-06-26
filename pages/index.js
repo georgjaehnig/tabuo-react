@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import arrayShuffle from 'array-shuffle';
 
-import { Button, Card, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
+import { Button, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
 
 import "rbx/index.sass";
 
