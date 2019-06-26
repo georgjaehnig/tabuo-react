@@ -2,13 +2,12 @@ import React, {Component} from "react";
 import Head from 'next/head';
 
 import arrayShuffle from 'array-shuffle';
+import Cards from "../src/cards.js";
 
 import { Button, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
 
 import "rbx/index.sass";
-
 import "../src/App.sass";
-import Cards from "../src/cards.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/free-solid-svg-icons'
