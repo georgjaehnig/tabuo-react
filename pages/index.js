@@ -46,12 +46,6 @@ class App extends Component {
     });
   };
 
-  next = () =>
-    this.setState((state) => {
-      state.trace.push(state.decision);
-      return state;
-    });
-
   count = (direction) => {
     switch (direction) {
       case 'left':
@@ -70,6 +64,12 @@ class App extends Component {
         break;
     }
   };
+
+  next = () =>
+    this.setState((state) => {
+      state.trace.push(state.decision);
+      return state;
+    });
 
   componentDidMount() {
     this.setState((state) => {
