@@ -161,7 +161,7 @@ class App extends Component {
               <SwipySwipeable
                 min={50}
                 buttons={({left, right}) => (
-                  <Level breakpoint="mobile" style={{position: 'absolute', left: 50, width: this.state.windowWidth-100 }}>
+                  <Level breakpoint="mobile">
                     <Level.Item>
                       <TabuoButton textColor="danger" onClick={left} icon={faTimesCircle} counter={stats.rejected} />
                     </Level.Item>
