@@ -24,16 +24,18 @@ const wrapperStyles = {
 
 class App extends Component {
   state = {
-    cards: arrayShuffle(Cards),
-    trace: [],
-    decision: undefined,
-    stats: {
+    cards: arrayShuffle(Cards),  // All the cards, in an array of objects.
+    trace: [],                   // The trace of decisions (accept, reject - as bool)
+    decision: undefined,         // The current decision (accept, reject - as bool)
+    stats: {                     // Collecting stats of current round
       accepted: 0,
       rejected: 0
     },
-    windowWidth: undefined,
+    windowWidth: undefined,      // Width of window, to calculate card width
   };
 
+	// Undo an Accept or Reject.
+	// It will simply delete the trace from the end.
   undo = () => {
     this.setState((state) => {
       if (state.trace.length == 0) {
@@ -46,6 +48,8 @@ class App extends Component {
     });
   };
 
+	// Count the current decision,
+	//   remember it in state.decision.
   count = (direction) => {
     switch (direction) {
       case 'left':
@@ -65,12 +69,17 @@ class App extends Component {
     }
   };
 
+	// Push decision into trace.
+	//   This is an extra function, 
+	//   triggered not onSwipe but onAfterSwipe
+	//   to avoid rendering issues.
   next = () =>
     this.setState((state) => {
       state.trace.push(state.decision);
       return state;
     });
 
+	// Set card size after window width is known.
   componentDidMount() {
     this.setState((state) => {
       state.windowWidth = window.outerWidth;
