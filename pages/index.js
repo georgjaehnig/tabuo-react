@@ -87,23 +87,19 @@ class App extends Component {
 
   timerStartPause = () => {
     this.setState((state) => {
-			//console.log(state.timer);
 			// Start.
 			if ((!state.timer.started) && (!state.timer.paused)) {
         state.timer.started = true;
-			  console.log(state.timer);
         return state;
 			}
 			// Pause
 			if ((state.timer.started) && (!state.timer.paused)) {
         state.timer.paused = true;
-			  console.log(state.timer);
         return state;
 			}
 			// Unpause
 			if ((state.timer.started) && (state.timer.paused)) {
         state.timer.paused = false;
-			  console.log(state.timer);
         return state;
 			}
     });
