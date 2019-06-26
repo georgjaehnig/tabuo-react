@@ -155,7 +155,6 @@ class App extends Component {
               />
             </Level.Item>
           </Level>
-          <div style={wrapperStyles}>
           {cards.length > trace.length ? (
             <div style={wrapperStyles}>
               <SwipySwipeable
@@ -183,7 +182,6 @@ class App extends Component {
             ) : (
             <TabuoCard zIndex={-2} />
           )}
-          </div>
         </Container>
       </div>
     );
