@@ -16,6 +16,8 @@ import SwipySwipeable from "react-swipy"
 import TabuoCard from "./components/TabuoCard";
 import TabuoButton from "./components/TabuoButton";
 
+import TimerMachine from 'react-timer-machine'
+
 const wrapperStyles = {
   position: "relative", 
   width: "250px", 
@@ -32,6 +34,10 @@ class App extends Component {
       rejected: 0
     },
     windowWidth: undefined,      // Width of window, to calculate card width
+    timer: {
+      started: false,
+      paused: false,
+    }
   };
 
 	// Undo an Accept or Reject.
@@ -78,6 +84,38 @@ class App extends Component {
       state.trace.push(state.decision);
       return state;
     });
+
+  timerStartPause = () => {
+    this.setState((state) => {
+			//console.log(state.timer);
+			// Start.
+			if ((!state.timer.started) && (!state.timer.paused)) {
+        state.timer.started = true;
+			  console.log(state.timer);
+        return state;
+			}
+			// Pause
+			if ((state.timer.started) && (!state.timer.paused)) {
+        state.timer.paused = true;
+			  console.log(state.timer);
+        return state;
+			}
+			// Unpause
+			if ((state.timer.started) && (state.timer.paused)) {
+        state.timer.paused = false;
+			  console.log(state.timer);
+        return state;
+			}
+    });
+  };
+
+  timerResume = () => {
+    this.setState((state) => {
+      state.timer.started = false;
+      state.timer.paused = false;
+      return state;
+    });
+  };
 
 	// Set card size after window width is known.
   componentDidMount() {
