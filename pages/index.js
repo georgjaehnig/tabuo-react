@@ -98,11 +98,25 @@ class App extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </Head>
         <Container>
-
           <Level breakpoint="mobile">
             <Level.Item textSize={3}><FontAwesomeIcon icon={faSmileWink} /> </Level.Item>
+            <Level.Item> <Button onClick={this.timerStartPause}>startPause</Button> </Level.Item>
+            <Level.Item> <Button onClick={this.timerResume}>stop</Button> </Level.Item>
+            <Level.Item>
+	  		      <TimerMachine
+                timeStart={60 * 1000}               // Start at 60 seconds.
+                timeEnd={0 * 1000} 
+                started={this.state.timer.started}
+                paused={this.state.timer.paused}
+                countdown={true} 
+                interval={1000}                     // Tick every 1 second.
+                formatTimer={(time, ms) => {
+	        			  	return ms/1000;
+	        			  }
+                }
+              />
+			      </Level.Item>
           </Level>
-
           <div style={wrapperStyles}>
           {cards.length > trace.length ? (
             <div style={wrapperStyles}>
