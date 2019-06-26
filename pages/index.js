@@ -88,6 +88,7 @@ class App extends Component {
   };
 
   render() {
+
     const {cards, stats, trace} = this.state;
 
     return (
