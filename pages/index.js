@@ -151,6 +151,7 @@ class App extends Component {
 	        			  	return ms/1000;
 	        			  }
                 }
+                onComplete={this.timerResume}
               />
 			      </Level.Item>
           </Level>
