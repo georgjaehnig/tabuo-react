@@ -71,13 +71,12 @@ class App extends Component {
     }
   };
 
- componentDidMount() {
-   this.setState((state) => {
-     state.windowWidth = window.outerWidth;
-     return state;
-   });
- };
-
+  componentDidMount() {
+    this.setState((state) => {
+      state.windowWidth = window.outerWidth;
+      return state;
+    });
+  };
 
   render() {
     const {cards, stats, trace} = this.state;
