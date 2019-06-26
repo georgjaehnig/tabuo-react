@@ -15,6 +15,7 @@ import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/
 
 import SwipySwipeable from "react-swipy"
 import TabuoCard from "./components/TabuoCard";
+import TabuoButton from "./components/TabuoButton";
 
 const wrapperStyles = {
   position: "relative", 
@@ -102,21 +103,13 @@ class App extends Component {
                 buttons={({left, right}) => (
                   <Level breakpoint="mobile" style={{position: 'absolute', left: 50, width: this.state.windowWidth-100 }}>
                     <Level.Item>
-                      <Button textColor="danger" textSize={4} onClick={left}> 
-                        <FontAwesomeIcon icon={faTimesCircle} /> 
-                        <span>&nbsp;</span>
-                        <div>{stats.rejected}</div>
-                      </Button>
+                      <TabuoButton textColor="danger" onClick={left} icon={faTimesCircle} counter={stats.rejected} />
                     </Level.Item>
                     <Level.Item>
                       <Button disabled={trace.length==0} textColor="info" textSize={5} onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
-                      <Button textColor="success" textSize={4} onClick={right}>
-                        <FontAwesomeIcon icon={faCheckCircle} /> 
-                        <span>&nbsp;</span>
-                        <div>{stats.accepted}</div>
-                      </Button>
+                      <TabuoButton textColor="success" onClick={right} icon={faCheckCircle} counter={stats.accepted} />
                     </Level.Item>
                   </Level>
                 )}
