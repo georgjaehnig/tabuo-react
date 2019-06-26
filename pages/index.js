@@ -132,7 +132,7 @@ class App extends Component {
       <div>
         <Head>
           <title>Tabuo</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
         </Head>
         <Container>
           <Level breakpoint="mobile">
