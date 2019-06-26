@@ -40,8 +40,8 @@ class App extends Component {
     }
   };
 
-	// Undo an Accept or Reject.
-	// It will simply delete the trace from the end.
+  // Undo an Accept or Reject.
+  // It will simply delete the trace from the end.
   undo = () => {
     this.setState((state) => {
       if (state.trace.length == 0) {
@@ -54,8 +54,8 @@ class App extends Component {
     });
   };
 
-	// Count the current decision,
-	//   remember it in state.decision.
+  // Count the current decision,
+  //   remember it in state.decision.
   count = (direction) => {
     switch (direction) {
       case 'left':
@@ -75,10 +75,10 @@ class App extends Component {
     }
   };
 
-	// Push decision into trace.
-	//   This is an extra function, 
-	//   triggered not onSwipe but onAfterSwipe
-	//   to avoid rendering issues.
+  // Push decision into trace.
+  //   This is an extra function, 
+  //   triggered not onSwipe but onAfterSwipe
+  //   to avoid rendering issues.
   next = () =>
     this.setState((state) => {
       state.trace.push(state.decision);
@@ -87,24 +87,24 @@ class App extends Component {
 
   timerStartPause = () => {
     this.setState((state) => {
-			// Start.
-			if ((!state.timer.started) && (!state.timer.paused)) {
+      // Start.
+      if :((!state.timer.started) && (!state.timer.paused)) {
         // Reset stats.
         state.stats.accepted = 0;
         state.stats.rejected = 0;
         state.timer.started = true;
         return state;
-			}
-			// Pause
-			if ((state.timer.started) && (!state.timer.paused)) {
+      }
+      // Pause
+      if ((state.timer.started) && (!state.timer.paused)) {
         state.timer.paused = true;
         return state;
-			}
-			// Unpause
-			if ((state.timer.started) && (state.timer.paused)) {
+      }
+      // Unpause
+      if ((state.timer.started) && (state.timer.paused)) {
         state.timer.paused = false;
         return state;
-			}
+      }
     });
   };
 
@@ -116,7 +116,7 @@ class App extends Component {
     });
   };
 
-	// Set card size after window width is known.
+  // Set card size after window width is known.
   componentDidMount() {
     this.setState((state) => {
       state.windowWidth = window.outerWidth;
@@ -140,7 +140,7 @@ class App extends Component {
             <Level.Item> <Button onClick={this.timerStartPause}>startPause</Button> </Level.Item>
             <Level.Item> <Button onClick={this.timerResume}>stop</Button> </Level.Item>
             <Level.Item>
-	  		      <TimerMachine
+              <TimerMachine
                 timeStart={60 * 1000}               // Start at 60 seconds.
                 timeEnd={0 * 1000} 
                 started={this.state.timer.started}
@@ -148,12 +148,12 @@ class App extends Component {
                 countdown={true} 
                 interval={1000}                     // Tick every 1 second.
                 formatTimer={(time, ms) => {
-	        			  	return ms/1000;
-	        			  }
+                    return ms/1000;
+                  }
                 }
                 onComplete={this.timerResume}
               />
-			      </Level.Item>
+            </Level.Item>
           </Level>
           <div style={wrapperStyles}>
           {cards.length > trace.length ? (
