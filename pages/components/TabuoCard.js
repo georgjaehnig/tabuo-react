@@ -4,9 +4,8 @@ const cardStyles = {
   cursor: "pointer",
   userSelect: "none",
   position: "absolute",
-  top: 50,
-  left: 50,
-  height: 500,
+  top: 0,
+  left: '5%',
 };
 
 const TabuoCard = ({ zIndex = 0, windowWidth, card }) => {

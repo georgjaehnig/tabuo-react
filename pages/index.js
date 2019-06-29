@@ -20,8 +20,8 @@ import TimerMachine from 'react-timer-machine'
 
 const wrapperStyles = {
   position: "relative", 
-  width: "250px", 
-  height: "400px",
+  width: "90%", 
+  height: "23em", 
 };
 
 class App extends Component {
