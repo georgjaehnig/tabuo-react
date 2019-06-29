@@ -14,7 +14,7 @@ const TabuoCard = ({ zIndex = 0, windowWidth, card }) => {
   if (!windowWidth) {
     return <div></div>; 
   }
-  let width = windowWidth-200;
+  let width = '100%';
 
   return <div style={{ ...cardStyles, width, zIndex }}>
     { card ? (
