@@ -137,7 +137,7 @@ class App extends Component {
         <Container>
           <Level breakpoint="mobile">
             <Level.Item textSize={3}><FontAwesomeIcon icon={faSmileWink} /> </Level.Item>
-            <Level.Item> <Button onClick={this.timerStartPause}>startPause</Button> </Level.Item>
+            <Level.Item> <Button onClick={this.timerStartPause}>start/pause</Button> </Level.Item>
             <Level.Item> <Button onClick={this.timerResume}>stop</Button> </Level.Item>
             <Level.Item>
               <TimerMachine
