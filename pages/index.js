@@ -133,11 +133,12 @@ class App extends Component {
     const {cards, stats, trace, mode, team} = this.state;
 
     let firstCard, secondCard;
+    let title, content;
 
     switch (mode) {
       case 'start':
-        let title = 'Kiel ludi';
-        let content = <div> 
+        title = 'Kiel ludi';
+        content = <div> 
           Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.  
           <ul>
             <li>Je sukceso, ŝovu dekstren; je malsukceso maldekstren.</li>
