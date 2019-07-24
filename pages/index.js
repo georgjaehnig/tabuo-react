@@ -118,6 +118,16 @@ class App extends Component {
 
     const {cards, stats, trace} = this.state;
 
+    let firstCard = <TabuoPlayCard card={cards[trace.length]}  />;
+
+    {/* If there's at least one more card:
+        stack it behind the visible card. */}
+
+    let secondCard = '';
+    if (cards.length-trace.length+1 > 1) {
+      secondCard = <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} />;
+    }
+
     return (
       <div>
         <Head>
@@ -165,11 +175,9 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <TabuoPlayCard card={cards[trace.length]}  />
+                {firstCard}
               </SwipySwipeable>
-              {/* If there's at least one more card:
-                  stack it behind the visible card. */}
-              { cards.length-trace.length+1 > 1 && <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} /> }
+            {secondCard}
             </div>
             ) : (
             <TabuoPlayCard zIndex={-2} />
