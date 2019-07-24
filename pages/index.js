@@ -33,7 +33,6 @@ class App extends Component {
       accepted: 0,
       rejected: 0
     },
-    windowWidth: undefined,      // Width of window, to calculate card width
     timer: {
       started: false,
       paused: false,
@@ -116,14 +115,6 @@ class App extends Component {
     });
   };
 
-  // Set card size after window width is known.
-  componentDidMount() {
-    this.setState((state) => {
-      state.windowWidth = window.outerWidth;
-      return state;
-    });
-  };
-
   render() {
 
     const {cards, stats, trace} = this.state;
@@ -175,9 +166,9 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <TabuoCard card={cards[trace.length]} windowWidth={this.state.windowWidth} />
+                <TabuoCard card={cards[trace.length]}  />
               </SwipySwipeable>
-              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards[trace.length+1]} windowWidth={this.state.windowWidth} /> }
+              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards[trace.length+1]} /> }
             </div>
             ) : (
             <TabuoCard zIndex={-2} />

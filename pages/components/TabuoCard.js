@@ -8,11 +8,8 @@ const cardStyles = {
   left: '5%',
 };
 
-const TabuoCard = ({ zIndex = 0, windowWidth, card }) => {
+const TabuoCard = ({ zIndex = 0, card }) => {
 
-  if (!windowWidth) {
-    return <div></div>; 
-  }
   let width = '100%';
 
   return <div style={{ ...cardStyles, width, zIndex }}>
