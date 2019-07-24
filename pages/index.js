@@ -80,7 +80,7 @@ class App extends Component {
   //   This is an extra function, 
   //   triggered not onSwipe but onAfterSwipe
   //   to avoid rendering issues.
-  next = () => {
+  afterSwipe = () => {
     // Only when playing.
     if (this.state.mode == 'start') {
       this.setState((state) => { 
@@ -203,7 +203,7 @@ class App extends Component {
                   </Level>
                 )}
                 onSwipe={this.count}
-                onAfterSwipe={this.next}
+                onAfterSwipe={this.afterSwipe}
               >
                 {firstCard}
               </SwipySwipeable>
