@@ -35,7 +35,9 @@ class App extends Component {
     timer: {
       started: false,
       paused: false,
-    }
+    },
+    mode: 'waiting',   // 'playing' or 'waiting'.
+    team: 1,    // 1 or 2.
   };
 
   // Undo an Accept or Reject.
@@ -116,7 +118,7 @@ class App extends Component {
 
   render() {
 
-    const {cards, stats, trace} = this.state;
+    const {cards, stats, trace, mode, team} = this.state;
 
     let firstCard = <TabuoPlayCard card={cards[trace.length]}  />;
 
