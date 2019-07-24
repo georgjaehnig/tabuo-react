@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/free-solid-svg-icons'
 
 import SwipySwipeable from "react-swipy"
+import TabuoCard from "./components/TabuoCard";
 import TabuoPlayCard from "./components/TabuoPlayCard";
 import TabuoButton from "./components/TabuoButton";
 
