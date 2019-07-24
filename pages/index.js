@@ -158,6 +158,15 @@ class App extends Component {
         }
         break;
       case 'roundDone':
+        title = 'La rundo finiĝis';
+        content = <div> 
+          <ul>
+            <li>Sukcesoj: {stats.accepted} </li>
+            <li>Malsukcesoj: {stats.rejected} </li>
+          </ul>
+        </div>
+        firstCard = <TabuoCard title={title} content={content} />;
+        secondCard = <TabuoPlayCard zIndex={-1} card={cards[0]} />;
       break;
     }
 
