@@ -17,7 +17,7 @@ const TabuoCard = ({ zIndex = 0, windowWidth, card }) => {
 
   return <div style={{ ...cardStyles, width, zIndex }}>
     { card ? (
-      <Card>
+      <Card textSize={4}>
         <Card.Header>
           <Card.Header.Title align="centered">{card.target}</Card.Header.Title>
         </Card.Header>
