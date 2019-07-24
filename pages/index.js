@@ -168,6 +168,7 @@ class App extends Component {
           <ul>
             <li>Sukcesoj: {stats.accepted} </li>
             <li>Malsukcesoj: {stats.rejected} </li>
+            <li>Ŝovu dekstren por rekomenci.</li>
           </ul>
         </div>
         firstCard = <TabuoCard title={title} content={content} />;
