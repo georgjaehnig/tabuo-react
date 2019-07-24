@@ -169,7 +169,7 @@ class App extends Component {
               </SwipySwipeable>
               // If there's at least one more card:
               //   stack it behind the visible card.
-              {cards.length-trace.length+1 > 1 && <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} /> }
+              { cards.length-trace.length+1 > 1 && <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} /> }
             </div>
             ) : (
             <TabuoPlayCard zIndex={-2} />
