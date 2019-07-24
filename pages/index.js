@@ -123,6 +123,7 @@ class App extends Component {
     this.setState((state) => {
       state.timer.started = false;
       state.timer.paused = false;
+      state.mode = 'roundDone';
       return state;
     });
   };
