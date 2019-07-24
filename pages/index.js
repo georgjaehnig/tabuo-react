@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/free-solid-svg-icons'
 
 import SwipySwipeable from "react-swipy"
-import TabuoCard from "./components/TabuoCard";
+import TabuoPlayCard from "./components/TabuoPlayCard";
 import TabuoButton from "./components/TabuoButton";
 
 import TimerMachine from 'react-timer-machine'
@@ -165,12 +165,12 @@ class App extends Component {
                 onSwipe={this.count}
                 onAfterSwipe={this.next}
               >
-                <TabuoCard card={cards[trace.length]}  />
+                <TabuoPlayCard card={cards[trace.length]}  />
               </SwipySwipeable>
-              {cards.length-trace.length+1 > 1 && <TabuoCard zIndex={-1} card={cards[trace.length+1]} /> }
+              {cards.length-trace.length+1 > 1 && <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} /> }
             </div>
             ) : (
-            <TabuoCard zIndex={-2} />
+            <TabuoPlayCard zIndex={-2} />
           )}
         </Container>
       </div>
