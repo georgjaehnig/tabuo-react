@@ -85,6 +85,7 @@ class App extends Component {
     if (this.state.mode == 'start') {
       this.setState((state) => { 
         state.mode = 'play';
+        state.timer.started = true;
         return state;
       });
       return;
