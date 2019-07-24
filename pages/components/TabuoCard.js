@@ -6,6 +6,7 @@ const cardStyles = {
   position: "absolute",
   top: 0,
   left: '5%',
+  width: "90%", 
 };
 
 const TabuoCard = ({ zIndex = 0, card }) => {
