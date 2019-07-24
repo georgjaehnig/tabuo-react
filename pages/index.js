@@ -37,7 +37,7 @@ class App extends Component {
       started: false,
       paused: false,
     },
-    mode: 'play',   // 'start', 'play' or 'wait'.
+    mode: 'start',   // 'start', 'play' or 'wait'.
     team: 1,    // 1 or 2.
   };
 
