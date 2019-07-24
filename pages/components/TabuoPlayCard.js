@@ -1,4 +1,4 @@
-import { Card, List } from 'rbx';
+import { List } from 'rbx';
 import TabuoCard from "./TabuoCard";
 
 const TabuoPlayCard = ({ zIndex = 0, card }) => {

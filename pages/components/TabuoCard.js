@@ -1,4 +1,4 @@
-import { Card, List } from 'rbx';
+import { Card } from 'rbx';
 
 const cardStyles = {
   cursor: "pointer",
