@@ -158,7 +158,7 @@ class App extends Component {
           {cards.length > trace.length ? (
             <div style={wrapperStyles}>
               <SwipySwipeable
-                min={50}
+                min={500}
                 buttons={({left, right}) => (
                   <Level breakpoint="mobile">
                     <Level.Item>
