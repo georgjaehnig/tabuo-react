@@ -83,9 +83,12 @@ class App extends Component {
   afterSwipe = () => {
     switch (this.state.mode) {
       case 'start':
+      case 'roundDone':
         this.setState((state) => { 
           state.mode = 'play';
           state.timer.started = true;
+          state.stats.accepted = 0;
+          state.stats.rejected = 0;
           return state;
         });
         break;
