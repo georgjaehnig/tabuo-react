@@ -36,7 +36,7 @@ class App extends Component {
       started: false,
       paused: false,
     },
-    mode: 'waiting',   // 'playing' or 'waiting'.
+    mode: 'play',   // 'start', 'play' or 'wait'.
     team: 1,    // 1 or 2.
   };
 
@@ -120,14 +120,22 @@ class App extends Component {
 
     const {cards, stats, trace, mode, team} = this.state;
 
-    let firstCard = <TabuoPlayCard card={cards[trace.length]}  />;
+    let firstCard, secondCard;
 
-    {/* If there's at least one more card:
-        stack it behind the visible card. */}
-
-    let secondCard = '';
-    if (cards.length-trace.length+1 > 1) {
-      secondCard = <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} />;
+    switch (mode) {
+      case 'start':
+      break;
+      case 'play':
+        firstCard = <TabuoPlayCard card={cards[trace.length]}  />;
+        {/* If there's at least one more card:
+            stack it behind the visible card. */}
+        secondCard = '';
+        if (cards.length-trace.length+1 > 1) {
+          secondCard = <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} />;
+        }
+        break;
+      case 'wait':
+      break;
     }
 
     return (
