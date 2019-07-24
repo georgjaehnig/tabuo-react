@@ -12,7 +12,7 @@ const cardStyles = {
 const TabuoCard = ({ zIndex = 0, title, content }) => {
 
   return <div style={{ ...cardStyles, zIndex }} >
-    <Card textSize={4}>
+    <Card textSize={4} style={{height: '65vh'}}>
       <Card.Header>
         <Card.Header.Title align="centered">{title}</Card.Header.Title>
       </Card.Header>
