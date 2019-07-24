@@ -11,9 +11,7 @@ const cardStyles = {
 
 const TabuoCard = ({ zIndex = 0, card }) => {
 
-  let width = '100%';
-
-  return <div style={{ ...cardStyles, width, zIndex }}>
+  return <div style={{ ...cardStyles, zIndex }} >
     { card ? (
       <Card textSize={4}>
         <Card.Header>
