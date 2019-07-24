@@ -81,19 +81,21 @@ class App extends Component {
   //   triggered not onSwipe but onAfterSwipe
   //   to avoid rendering issues.
   afterSwipe = () => {
-    // Only when playing.
-    if (this.state.mode == 'start') {
-      this.setState((state) => { 
-        state.mode = 'play';
-        state.timer.started = true;
-        return state;
-      });
-      return;
+    switch (this.state.mode) {
+      case 'start':
+        this.setState((state) => { 
+          state.mode = 'play';
+          state.timer.started = true;
+          return state;
+        });
+        break;
+      case 'play':
+        this.setState((state) => {
+          state.trace.push(state.decision);
+          return state;
+        });
+        break;
     }
-    this.setState((state) => {
-      state.trace.push(state.decision);
-      return state;
-    })
   };
 
   timerStartPause = () => {
