@@ -156,7 +156,7 @@ class App extends Component {
           secondCard = <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} />;
         }
         break;
-      case 'wait':
+      case 'roundDone':
       break;
     }
 
