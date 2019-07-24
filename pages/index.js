@@ -126,13 +126,13 @@ class App extends Component {
     switch (mode) {
       case 'start':
         let title = 'Kiel ludi';
-        let content = <p> 
+        let content = <div> 
           Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.  
           <ul>
             <li>Je sukceso, ŝovu dekstren; je malsukceso maldekstren.</li>
             <li>Je misŝovu alklaku la mezan butonon.</li>
           </ul>
-        </p>
+        </div>
         firstCard = <TabuoCard title={title} content={content} />;
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[0]} />;
       break;
