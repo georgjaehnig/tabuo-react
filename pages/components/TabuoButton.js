@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TabuoButton = ({ textColor, onClick, icon, counter }) => {
 
-  return <Button textColor={textColor} textSize={4} onClick={onClick}> 
+  return <Button textColor={textColor} textSize={4} onClick={onClick} style={{ width:'70%' }}> 
 			<FontAwesomeIcon icon={icon} /> 
 			<span>&nbsp;</span>
 			<div>{counter}</div>
