@@ -204,13 +204,13 @@ class App extends Component {
                 buttons={({left, right}) => (
                   <Level breakpoint="mobile" style={{ width:'100%' }}>
                     <Level.Item>
-                      <TabuoButton textColor="danger" onClick={left} icon={faTimesCircle} counter={stats.rejected} />
+                      <TabuoButton disabled={this.state.timer.paused} textColor="danger" onClick={left} icon={faTimesCircle} counter={stats.rejected} />
                     </Level.Item>
                     <Level.Item>
                       <Button disabled={index==0} textColor="info" textSize={5} onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
-                      <TabuoButton textColor="success" onClick={right} icon={faCheckCircle} counter={stats.accepted} />
+                      <TabuoButton disabled={this.state.timer.paused} textColor="success" onClick={right} icon={faCheckCircle} counter={stats.accepted} />
                     </Level.Item>
                   </Level>
                 )}
