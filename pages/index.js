@@ -121,6 +121,9 @@ class App extends Component {
       state.timer.started = false;
       state.timer.paused = false;
       state.mode = 'roundDone';
+      // Increase index
+      // so that next round starts with new card.
+      state.index++;
       return state;
     });
   };
