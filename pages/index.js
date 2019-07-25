@@ -27,6 +27,7 @@ const wrapperStyles = {
 class App extends Component {
   state = {
     cards: arrayShuffle(Cards),  // All the cards, in an array of objects.
+    index: 0,                    // Index of current card.
     trace: [],                   // The trace of decisions (accept, reject - as bool)
     decision: undefined,         // The current decision (accept, reject - as bool)
     stats: {                     // Collecting stats of current round
@@ -45,12 +46,13 @@ class App extends Component {
   // It will simply delete the trace from the end.
   undo = () => {
     this.setState((state) => {
-      if (state.trace.length == 0) {
+      if (state.index == 0) {
         return state;
       }
       (state.trace.pop() 
         ? state.stats.accepted = state.stats.accepted - 1 
         : state.stats.rejected = state.stats.rejected - 1 )
+      state.index--;
       return state;
     });
   };
@@ -95,6 +97,7 @@ class App extends Component {
       case 'play':
         this.setState((state) => {
           state.trace.push(state.decision);
+          state.index++;
           return state;
         });
         break;
@@ -127,7 +130,7 @@ class App extends Component {
 
   render() {
 
-    const {cards, stats, trace, mode, team} = this.state;
+    const {cards, index, stats, trace, mode, team} = this.state;
 
     let firstCard, secondCard;
     let title, content;
@@ -146,12 +149,12 @@ class App extends Component {
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[0]} />;
       break;
       case 'play':
-        firstCard = <TabuoPlayCard card={cards[trace.length]}  />;
+        firstCard = <TabuoPlayCard card={cards[index]}  />;
         {/* If there's at least one more card:
             stack it behind the visible card. */}
         secondCard = '';
-        if (cards.length-trace.length+1 > 1) {
-          secondCard = <TabuoPlayCard zIndex={-1} card={cards[trace.length+1]} />;
+        if (cards.length-index+1 > 1) {
+          secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
         }
         break;
       case 'roundDone':
@@ -194,7 +197,7 @@ class App extends Component {
               />
             </Level.Item>
           </Level>
-          {cards.length > trace.length ? (
+          {cards.length > index ? (
             <div style={wrapperStyles}>
               <SwipySwipeable
                 min={500}
@@ -204,7 +207,7 @@ class App extends Component {
                       <TabuoButton textColor="danger" onClick={left} icon={faTimesCircle} counter={stats.rejected} />
                     </Level.Item>
                     <Level.Item>
-                      <Button disabled={trace.length==0} textColor="info" textSize={5} onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
+                      <Button disabled={index==0} textColor="info" textSize={5} onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
                       <TabuoButton textColor="success" onClick={right} icon={faCheckCircle} counter={stats.accepted} />
