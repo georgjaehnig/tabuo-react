@@ -146,7 +146,7 @@ class App extends Component {
           </ul>
         </div>
         firstCard = <TabuoCard title={title} content={content} />;
-        secondCard = <TabuoPlayCard zIndex={-1} card={cards[0]} />;
+        secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
       break;
       case 'play':
         firstCard = <TabuoPlayCard card={cards[index]}  />;
