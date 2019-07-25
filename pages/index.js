@@ -78,10 +78,6 @@ class App extends Component {
     }
   };
 
-  // Push decision into trace.
-  //   This is an extra function, 
-  //   triggered not onSwipe but onAfterSwipe
-  //   to avoid rendering issues.
   afterSwipe = () => {
     switch (this.state.mode) {
       case 'start':
