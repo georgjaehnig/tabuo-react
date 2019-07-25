@@ -46,7 +46,7 @@ class App extends Component {
   // It will simply delete the trace from the end.
   undo = () => {
     this.setState((state) => {
-      if (state.index == 0) {
+      if (state.trace.length == 0) {
         return state;
       }
       (state.trace.pop() 
