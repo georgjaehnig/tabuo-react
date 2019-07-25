@@ -59,7 +59,7 @@ class App extends Component {
 
   // Count the current decision,
   //   remember it in state.decision.
-  count = (direction) => {
+  swipe = (direction) => {
     switch (direction) {
       case 'left':
         this.setState((state) => { 
@@ -211,7 +211,7 @@ class App extends Component {
                     </Level.Item>
                   </Level>
                 )}
-                onSwipe={this.count}
+                onSwipe={this.swipe}
                 onAfterSwipe={this.afterSwipe}
               >
                 {firstCard}
