@@ -87,6 +87,7 @@ class App extends Component {
           state.timer.started = true;
           state.stats.accepted = 0;
           state.stats.rejected = 0;
+          state.trace = [];
           return state;
         });
         break;
