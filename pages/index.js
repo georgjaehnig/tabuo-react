@@ -181,7 +181,7 @@ class App extends Component {
           <Level breakpoint="mobile">
             <Level.Item textSize={3}> <img src="/static/images/icon.png" alt="Icon" /> </Level.Item>
             <Level.Item style={{visibility: this.state.mode == 'play' ? 'visible' : 'hidden' }}>
-              <Button onClick={this.timerStartPause} style={{marginRight: '1em'}}>❚❚</Button>
+              <Button onClick={this.timerStartPause} style={{marginRight: '1em'}}>{ this.state.timer.paused ? '▶' : '❚❚' } </Button>
               <TimerMachine
                 timeStart={60 * 1000}               // Start at 60 seconds.
                 timeEnd={0 * 1000} 
