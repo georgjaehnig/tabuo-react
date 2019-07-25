@@ -176,7 +176,7 @@ class App extends Component {
         </Head>
         <Container>
           <Level breakpoint="mobile">
-            <Level.Item textSize={3}><FontAwesomeIcon icon={faSmileWink} /> </Level.Item>
+            <Level.Item textSize={3}> <img src="/static/images/icon.png" alt="Icon" /> </Level.Item>
             <Level.Item style={{visibility: this.state.mode == 'play' ? 'visible' : 'hidden' }}>
               <Button onClick={this.timerStartPause} style={{marginRight: '1em'}}>❚❚</Button>
               <TimerMachine
