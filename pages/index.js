@@ -39,7 +39,6 @@ class App extends Component {
       paused: false,
     },
     mode: 'start',   // 'start', 'play' or 'wait'.
-    team: 1,    // 1 or 2.
   };
 
   // Undo an Accept or Reject.
@@ -130,7 +129,7 @@ class App extends Component {
 
   render() {
 
-    const {cards, index, stats, trace, mode, team} = this.state;
+    const {cards, index, stats, trace, mode } = this.state;
 
     let firstCard, secondCard;
     let title, content;
