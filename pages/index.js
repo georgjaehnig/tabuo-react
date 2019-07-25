@@ -154,7 +154,7 @@ class App extends Component {
             stack it behind the visible card. */}
         secondCard = '';
         if (cards.length-index+1 > 1) {
-          secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
+          secondCard = <TabuoPlayCard zIndex={-1} card={cards[index+1]} />;
         }
         break;
       case 'roundDone':
