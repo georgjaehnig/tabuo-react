@@ -138,7 +138,7 @@ class App extends Component {
         content = <div> 
           Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.  
           <ul>
-            <li>Je sukceso, ŝovu dekstren; je malsukceso maldekstren.</li>
+            <li>Je sukceso ŝovu dekstren; je malsukceso maldekstren.</li>
             <li>Je misŝovu alklaku la mezan butonon.</li>
           </ul>
         </div>
