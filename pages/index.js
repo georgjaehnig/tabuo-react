@@ -139,12 +139,13 @@ class App extends Component {
 
     switch (mode) {
       case 'start':
-        title = 'Kiel ludi';
+        title = 'How to play';
         content = <div> 
-          Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.  
+          Explain the word to your team without using the taboos below.
           <ul>
-            <li>Je sukceso ŝovu dekstren; je malsukceso maldekstren.</li>
-            <li>Je misŝovu alklaku la mezan butonon.</li>
+            <li>If suceeded, swipe right; if failed, swipe left.</li>
+            <li>If swiped wrongly, tap the middle undo button.</li>
+            <li>Swipe right to start.</li>
           </ul>
         </div>
         firstCard = <TabuoCard title={title} content={content} />;
@@ -160,12 +161,12 @@ class App extends Component {
         }
         break;
       case 'roundDone':
-        title = 'La rundo finiĝis';
+        title = 'Round ended';
         content = <div> 
           <ul>
-            <li>Sukcesoj: {stats.accepted} </li>
-            <li>Malsukcesoj: {stats.rejected} </li>
-            <li>Ŝovu dekstren por rekomenci.</li>
+            <li>Successes: {stats.accepted} </li>
+            <li>Fails: {stats.rejected} </li>
+            <li>Swipe right to restart.</li>
           </ul>
         </div>
         firstCard = <TabuoCard title={title} content={content} />;
