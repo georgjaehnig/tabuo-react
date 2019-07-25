@@ -59,6 +59,9 @@ class App extends Component {
   // Count the current decision,
   //   remember it in state.decision.
   swipe = (direction) => {
+    if (this.state.mode != 'play') {
+      return;
+    }
     switch (direction) {
       case 'left':
         this.setState((state) => { 
