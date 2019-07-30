@@ -151,6 +151,62 @@ class App extends Component {
     let firstCard, secondCard;
     let title, content;
 
+    let texts = {
+      en: {
+        start: {
+          title: 'How to play',
+          content: (
+            <div>
+              Explain the word to your team without using the taboos below.
+              <ul>
+                <li>If suceeded, swipe right; if failed, swipe left.</li>
+                <li>If swiped wrongly, tap the middle undo button.</li>
+                <li>Swipe right to start.</li>
+              </ul>
+            </div>
+          ),
+        },
+        roundDone: {
+          title: 'Round ended',
+          content: (
+            <div>
+              <ul>
+                <li>Successes: {stats.accepted} </li>
+                <li>Fails: {stats.rejected} </li>
+                <li>Swipe right to restart.</li>
+              </ul>
+            </div>
+          ),
+        },
+      },
+      eo: {
+        start: {
+          title: 'Kiel ludi',
+          content: (
+            <div>
+              Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.
+              <ul>
+                <li>Je sukceso ŝovu dekstren; je malsukceso maldekstren.</li>
+                <li>Je misŝovu alklaku la mezan butonon.</li>
+              </ul>
+            </div>
+          ),
+        },
+        roundDone: {
+          title: 'La rundo finiĝis',
+          content: (
+            <div>
+              <ul>
+                <li>Sukcesoj: {stats.accepted} </li>
+                <li>Malsukcesoj: {stats.rejected} </li>
+                <li>Ŝovu dekstren por rekomenci.</li>
+              </ul>
+            </div>
+          ),
+        },
+      },
+    };
+
     switch (mode) {
       case 'start':
         title = 'How to play';
