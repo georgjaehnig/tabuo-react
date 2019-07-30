@@ -1,56 +1,62 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import Head from 'next/head';
 
 import arrayShuffle from 'array-shuffle';
-import Cards from "../src/cards.js";
+import Cards from '../src/cards.js';
 
-import { Button, Container, Columns, Column, Level, LevelItem, List } from 'rbx';
+import {Button, Container, Columns, Column, Level, LevelItem, List} from 'rbx';
 
-import "rbx/index.sass";
-import "../src/App.sass";
+import 'rbx/index.sass';
+import '../src/App.sass';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimesCircle, faCheckCircle, faUndo, faSmileWink } from '@fortawesome/free-solid-svg-icons'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+  faTimesCircle,
+  faCheckCircle,
+  faUndo,
+  faSmileWink,
+} from '@fortawesome/free-solid-svg-icons';
 
-import SwipySwipeable from "react-swipy"
-import TabuoCard from "./components/TabuoCard";
-import TabuoPlayCard from "./components/TabuoPlayCard";
-import TabuoButton from "./components/TabuoButton";
+import SwipySwipeable from 'react-swipy';
+import TabuoCard from './components/TabuoCard';
+import TabuoPlayCard from './components/TabuoPlayCard';
+import TabuoButton from './components/TabuoButton';
 
-import TimerMachine from 'react-timer-machine'
+import TimerMachine from 'react-timer-machine';
 
 const wrapperStyles = {
-  position: "relative", 
-  height: "70vh", 
+  position: 'relative',
+  height: '70vh',
 };
 
 class App extends Component {
   state = {
-    cards: arrayShuffle(Cards),  // All the cards, in an array of objects.
-    index: 0,                    // Index of current card.
-    trace: [],                   // The trace of decisions (accept, reject - as bool)
-    decision: undefined,         // The current decision (accept, reject - as bool)
-    stats: {                     // Collecting stats of current round
+    cards: arrayShuffle(Cards), // All the cards, in an array of objects.
+    index: 0, // Index of current card.
+    trace: [], // The trace of decisions (accept, reject - as bool)
+    decision: undefined, // The current decision (accept, reject - as bool)
+    stats: {
+      // Collecting stats of current round
       accepted: 0,
-      rejected: 0
+      rejected: 0,
     },
     timer: {
       started: false,
       paused: false,
     },
-    mode: 'start',   // 'start', 'play' or 'wait'.
+    mode: 'start', // 'start', 'play' or 'wait'.
   };
 
   // Undo an Accept or Reject.
   // It will simply delete the trace from the end.
   undo = () => {
-    this.setState((state) => {
+    this.setState(state => {
       if (state.trace.length == 0) {
         return state;
       }
-      (state.trace.pop() 
-        ? state.stats.accepted = state.stats.accepted - 1 
-        : state.stats.rejected = state.stats.rejected - 1 )
+      state.trace.pop()
+        ? (state.stats.accepted = state.stats.accepted - 1)
+        : (state.stats.rejected = state.stats.rejected - 1);
       state.index--;
       return state;
     });
@@ -58,20 +64,20 @@ class App extends Component {
 
   // Count the current decision,
   //   remember it in state.decision.
-  swipe = (direction) => {
+  swipe = direction => {
     if (this.state.mode != 'play') {
       return;
     }
     switch (direction) {
       case 'left':
-        this.setState((state) => { 
+        this.setState(state => {
           state.decision = false;
           state.stats.rejected = state.stats.rejected + 1;
           return state;
         });
         break;
       case 'right':
-        this.setState((state) => { 
+        this.setState(state => {
           state.decision = true;
           state.stats.accepted = state.stats.accepted + 1;
           return state;
@@ -84,7 +90,7 @@ class App extends Component {
     switch (this.state.mode) {
       case 'start':
       case 'roundDone':
-        this.setState((state) => { 
+        this.setState(state => {
           state.mode = 'play';
           state.timer.started = true;
           state.stats.accepted = 0;
@@ -94,7 +100,7 @@ class App extends Component {
         });
         break;
       case 'play':
-        this.setState((state) => {
+        this.setState(state => {
           state.trace.push(state.decision);
           state.index++;
           return state;
@@ -104,14 +110,14 @@ class App extends Component {
   };
 
   timerStartPause = () => {
-    this.setState((state) => {
+    this.setState(state => {
       // Pause
-      if ((state.timer.started) && (!state.timer.paused)) {
+      if (state.timer.started && !state.timer.paused) {
         state.timer.paused = true;
         return state;
       }
       // Unpause
-      if ((state.timer.started) && (state.timer.paused)) {
+      if (state.timer.started && state.timer.paused) {
         state.timer.paused = false;
         return state;
       }
@@ -119,7 +125,7 @@ class App extends Component {
   };
 
   timerResume = () => {
-    this.setState((state) => {
+    this.setState(state => {
       state.timer.started = false;
       state.timer.paused = false;
       state.mode = 'roundDone';
@@ -131,8 +137,7 @@ class App extends Component {
   };
 
   render() {
-
-    const {cards, index, stats, trace, mode } = this.state;
+    const {cards, index, stats, trace, mode} = this.state;
 
     let firstCard, secondCard;
     let title, content;
@@ -140,62 +145,80 @@ class App extends Component {
     switch (mode) {
       case 'start':
         title = 'How to play';
-        content = <div> 
-          Explain the word to your team without using the taboos below.
-          <ul>
-            <li>If suceeded, swipe right; if failed, swipe left.</li>
-            <li>If swiped wrongly, tap the middle undo button.</li>
-            <li>Swipe right to start.</li>
-          </ul>
-        </div>
+        content = (
+          <div>
+            Explain the word to your team without using the taboos below.
+            <ul>
+              <li>If suceeded, swipe right; if failed, swipe left.</li>
+              <li>If swiped wrongly, tap the middle undo button.</li>
+              <li>Swipe right to start.</li>
+            </ul>
+          </div>
+        );
         firstCard = <TabuoCard title={title} content={content} />;
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
-      break;
+        break;
       case 'play':
-        firstCard = <TabuoPlayCard card={cards[index]}  />;
-        {/* If there's at least one more card:
-            stack it behind the visible card. */}
+        firstCard = <TabuoPlayCard card={cards[index]} />;
+        {
+          /* If there's at least one more card:
+            stack it behind the visible card. */
+        }
         secondCard = '';
-        if (cards.length-index+1 > 1) {
-          secondCard = <TabuoPlayCard zIndex={-1} card={cards[index+1]} />;
+        if (cards.length - index + 1 > 1) {
+          secondCard = <TabuoPlayCard zIndex={-1} card={cards[index + 1]} />;
         }
         break;
       case 'roundDone':
         title = 'Round ended';
-        content = <div> 
-          <ul>
-            <li>Successes: {stats.accepted} </li>
-            <li>Fails: {stats.rejected} </li>
-            <li>Swipe right to restart.</li>
-          </ul>
-        </div>
+        content = (
+          <div>
+            <ul>
+              <li>Successes: {stats.accepted} </li>
+              <li>Fails: {stats.rejected} </li>
+              <li>Swipe right to restart.</li>
+            </ul>
+          </div>
+        );
         firstCard = <TabuoCard title={title} content={content} />;
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
-      break;
+        break;
     }
 
     return (
       <div>
         <Head>
           <title>Tabuo</title>
-          <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+          <meta
+            name="viewport"
+            content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
+          />
         </Head>
         <Container>
           <Level breakpoint="mobile">
-            <Level.Item textSize={3}> <img src="/static/images/icon.png" alt="Icon" /> </Level.Item>
-            <Level.Item style={{visibility: this.state.mode == 'play' ? 'visible' : 'hidden' }}>
-              <Button onClick={this.timerStartPause} style={{marginRight: '1em'}}>{ this.state.timer.paused ? '▶' : '❚❚' } </Button>
+            <Level.Item textSize={3}>
+              {' '}
+              <img src="/static/images/icon.png" alt="Icon" />{' '}
+            </Level.Item>
+            <Level.Item
+              style={{
+                visibility: this.state.mode == 'play' ? 'visible' : 'hidden',
+              }}>
+              <Button
+                onClick={this.timerStartPause}
+                style={{marginRight: '1em'}}>
+                {this.state.timer.paused ? '▶' : '❚❚'}{' '}
+              </Button>
               <TimerMachine
-                timeStart={60 * 1000}               // Start at 60 seconds.
-                timeEnd={0 * 1000} 
+                timeStart={60 * 1000} // Start at 60 seconds.
+                timeEnd={0 * 1000}
                 started={this.state.timer.started}
                 paused={this.state.timer.paused}
-                countdown={true} 
-                interval={1000}                     // Tick every 1 second.
+                countdown={true}
+                interval={1000} // Tick every 1 second.
                 formatTimer={(time, ms) => {
-                    return ms/1000;
-                  }
-                }
+                  return ms / 1000;
+                }}
                 onComplete={this.timerResume}
               />
             </Level.Item>
@@ -205,26 +228,44 @@ class App extends Component {
               <SwipySwipeable
                 min={500}
                 buttons={({left, right}) => (
-                  <Level breakpoint="mobile" style={{ width:'100%' }}>
+                  <Level breakpoint="mobile" style={{width: '100%'}}>
                     <Level.Item>
-                      <TabuoButton disabled={this.state.timer.paused} textColor="danger" onClick={left} icon={faTimesCircle} counter={stats.rejected} />
+                      <TabuoButton
+                        disabled={this.state.timer.paused}
+                        textColor="danger"
+                        onClick={left}
+                        icon={faTimesCircle}
+                        counter={stats.rejected}
+                      />
                     </Level.Item>
                     <Level.Item>
-                      <Button disabled={index==0} textColor="info" textSize={5} onClick={this.undo}> <FontAwesomeIcon icon={faUndo} /> </Button>
+                      <Button
+                        disabled={index == 0}
+                        textColor="info"
+                        textSize={5}
+                        onClick={this.undo}>
+                        {' '}
+                        <FontAwesomeIcon icon={faUndo} />{' '}
+                      </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
-                      <TabuoButton disabled={this.state.timer.paused} textColor="success" onClick={right} icon={faCheckCircle} counter={stats.accepted} />
+                      <TabuoButton
+                        disabled={this.state.timer.paused}
+                        textColor="success"
+                        onClick={right}
+                        icon={faCheckCircle}
+                        counter={stats.accepted}
+                      />
                     </Level.Item>
                   </Level>
                 )}
                 onSwipe={this.swipe}
-                onAfterSwipe={this.afterSwipe}
-              >
+                onAfterSwipe={this.afterSwipe}>
                 {firstCard}
               </SwipySwipeable>
-            {secondCard}
+              {secondCard}
             </div>
-            ) : (
+          ) : (
             <TabuoPlayCard zIndex={-2} />
           )}
         </Container>
