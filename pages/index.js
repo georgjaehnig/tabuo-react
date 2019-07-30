@@ -164,9 +164,9 @@ class App extends Component {
             <div>
               Explain the word to your team without using the taboos below.
               <ul>
-                <li>If suceeded, swipe right; if failed, swipe left.</li>
+                <li>If suceeded, swipe →, if failed, swipe ←</li>
                 <li>If swiped wrongly, tap the middle undo button.</li>
-                <li>Swipe right to start.</li>
+                <li>Swipe → to start.</li>
               </ul>
             </div>
           ),
@@ -178,7 +178,7 @@ class App extends Component {
               <ul>
                 <li>Successes: {stats.accepted} </li>
                 <li>Fails: {stats.rejected} </li>
-                <li>Swipe right to restart.</li>
+                <li>Swipe → to restart.</li>
               </ul>
             </div>
           ),
@@ -191,7 +191,7 @@ class App extends Component {
             <div>
               Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.
               <ul>
-                <li>Je sukceso ŝovu dekstren; je malsukceso maldekstren.</li>
+                <li>Je sukceso ŝovu →, je malsukceso ←</li>
                 <li>Je misŝovu alklaku la mezan butonon.</li>
               </ul>
             </div>
@@ -204,7 +204,7 @@ class App extends Component {
               <ul>
                 <li>Sukcesoj: {stats.accepted} </li>
                 <li>Malsukcesoj: {stats.rejected} </li>
-                <li>Ŝovu dekstren por rekomenci.</li>
+                <li>Ŝovu → por rekomenci.</li>
               </ul>
             </div>
           ),
