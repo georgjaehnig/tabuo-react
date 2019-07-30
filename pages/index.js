@@ -146,6 +146,10 @@ class App extends Component {
     });
   };
 
+  changeLanguage = event => {
+    this.setState({language: event.target.value});
+  };
+
   render() {
     const {cards, index, stats, trace, mode} = this.state;
 
