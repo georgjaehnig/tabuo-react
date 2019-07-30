@@ -4,7 +4,16 @@ import Head from 'next/head';
 import arrayShuffle from 'array-shuffle';
 import Cards from '../src/cards.js';
 
-import {Button, Container, Columns, Column, Level, LevelItem, List} from 'rbx';
+import {
+  Button,
+  Container,
+  Columns,
+  Column,
+  Level,
+  LevelItem,
+  List,
+  Select,
+} from 'rbx';
 
 import 'rbx/index.sass';
 import '../src/App.sass';
