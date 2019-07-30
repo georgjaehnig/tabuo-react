@@ -209,6 +209,16 @@ class App extends Component {
               {' '}
               <img src="/static/images/icon.png" alt="Icon" />{' '}
             </Level.Item>
+            <Level.Item>
+              <Select.Container>
+                <Select
+                  value={this.state.language}
+                  onChange={this.changeLanguage}>
+                  <Select.Option value="en">English</Select.Option>
+                  <Select.Option value="eo">Esperanto</Select.Option>
+                </Select>
+              </Select.Container>
+            </Level.Item>
             <Level.Item
               style={{
                 visibility: this.state.mode == 'play' ? 'visible' : 'hidden',
