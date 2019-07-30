@@ -209,17 +209,8 @@ class App extends Component {
 
     switch (mode) {
       case 'start':
-        title = 'How to play';
-        content = (
-          <div>
-            Explain the word to your team without using the taboos below.
-            <ul>
-              <li>If suceeded, swipe right; if failed, swipe left.</li>
-              <li>If swiped wrongly, tap the middle undo button.</li>
-              <li>Swipe right to start.</li>
-            </ul>
-          </div>
-        );
+        title = texts[this.state.language].start.title;
+        content = texts[this.state.language].start.content;
         firstCard = <TabuoCard title={title} content={content} />;
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
         break;
@@ -235,16 +226,8 @@ class App extends Component {
         }
         break;
       case 'roundDone':
-        title = 'Round ended';
-        content = (
-          <div>
-            <ul>
-              <li>Successes: {stats.accepted} </li>
-              <li>Fails: {stats.rejected} </li>
-              <li>Swipe right to restart.</li>
-            </ul>
-          </div>
-        );
+        title = texts[this.state.language].roundDone.title;
+        content = texts[this.state.language].roundDone.content;
         firstCard = <TabuoCard title={title} content={content} />;
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
         break;
