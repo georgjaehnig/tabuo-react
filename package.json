@@ -9,7 +9,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "sync.nabo": "rsync -rv out nstc:~/tbo "
+    "sync.nabo": "rsync -rv --delete-after out nstc:~/tbo "
   },
   "repository": {
     "type": "git",
