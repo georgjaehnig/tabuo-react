@@ -44,6 +44,7 @@ class App extends Component {
     index: 0, // Index of current card.
     trace: [], // The trace of decisions (accept, reject - as bool)
     decision: undefined, // The current decision (accept, reject - as bool)
+    language: 'eo',
     stats: {
       // Collecting stats of current round
       accepted: 0,
