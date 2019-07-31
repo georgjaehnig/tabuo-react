@@ -4,12 +4,11 @@
   "description": "The guessing game as a mobile website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "sync.nabo": "rsync -rv --delete-after out nstc:~/tbo "
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "sync.nabo": "rsync -rv --delete-after build nstc:~/tbo "
   },
   "repository": {
     "type": "git",
@@ -23,24 +22,32 @@
   "bugs": {
     "url": "https://github.com/georgjaehnig/tabuo-react/issues"
   },
-  "homepage": "https://github.com/georgjaehnig/tabuo-react#readme",
+  "homepage": "http://tabuo.esperanto.com/",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.20",
+    "@fortawesome/free-solid-svg-icons": "^5.10.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "@zeit/next-sass": "^1.0.1",
     "array-shuffle": "^1.0.1",
-    "bulma": "^0.7.5",
-    "next": "^8.1.0",
     "node-sass": "^4.12.0",
     "rbx": "^2.2.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
     "react-swipy": "0.0.6",
-    "react-timer-machine": "^1.0.2",
-    "styled-components": "^4.3.1"
+    "react-timer-machine": "^1.0.2"
   },
-  "devDependencies": {
-    "next-compose": "0.0.2"
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

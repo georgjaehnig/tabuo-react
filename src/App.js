@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-import Head from 'next/head';
+import icon from './images/icon.png';
 
 import arrayShuffle from 'array-shuffle';
-import Cards from '../src/cards.js';
+import Cards from './cards.js';
+
+import 'rbx/index.sass';
+import '../src/App.sass';
 
 import {
   Button,
@@ -14,9 +17,6 @@ import {
   List,
   Select,
 } from 'rbx';
-
-import 'rbx/index.sass';
-import '../src/App.sass';
 
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
@@ -38,7 +38,8 @@ const wrapperStyles = {
   height: '70vh',
 };
 
-class App extends Component {
+
+class App extends Component { 
   state = {
     cards: arrayShuffle(Cards), // All the cards, in an array of objects.
     index: 0, // Index of current card.
@@ -240,18 +241,11 @@ class App extends Component {
 
     return (
       <div>
-        <Head>
-          <title>Tabuo</title>
-          <meta
-            name="viewport"
-            content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
-          />
-        </Head>
         <Container>
           <Level breakpoint="mobile">
             <Level.Item textSize={3}>
               {' '}
-              <img src="/static/images/icon.png" alt="Icon" />{' '}
+              <img src={icon} alt="Icon" />{' '}
             </Level.Item>
             <Level.Item>
               <Select.Container>
@@ -336,5 +330,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
