@@ -245,7 +245,7 @@ class App extends Component {
           position: 'absolute',
           left: '50%',
           top: '50%',
-          transform: 'translate(-50%, -58%)',
+          transform: 'translate(-50%, -55%)',
         }}>
         <Container>
           <Level breakpoint="mobile">
