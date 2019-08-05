@@ -38,8 +38,7 @@ const wrapperStyles = {
   height: '70vh',
 };
 
-
-class App extends Component { 
+class App extends Component {
   state = {
     cards: arrayShuffle(Cards), // All the cards, in an array of objects.
     index: 0, // Index of current card.
