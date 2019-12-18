@@ -10,7 +10,7 @@ const cardStyles = {
   width: "90%", 
 };
 
-const TabuoCard = ({ zIndex = 0, title, content }) => {
+const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
 
   return <div style={{ ...cardStyles, zIndex }} >
     <Card textSize={4} style={{height: '65vh'}}>
@@ -18,6 +18,11 @@ const TabuoCard = ({ zIndex = 0, title, content }) => {
         <Card.Header.Title align="centered">{title}</Card.Header.Title>
       </Card.Header>
       <Card.Content textAlign="centered">{content}</Card.Content>
+      {footer && 
+        <Card.Footer>
+          <Card.Footer.Item align="centered" textSize={6} style={{fontStyle:'italic'}}>{footer}</Card.Footer.Item>
+        </Card.Footer>
+      }
     </Card>
   </div>
 };
