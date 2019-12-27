@@ -250,8 +250,7 @@ class App extends Component {
         <Container>
           <Level breakpoint="mobile">
             <Level.Item textSize={3}>
-              {' '}
-              <img src={icon} alt="Icon" />{' '}
+              <img src={icon} alt="Icon" />
             </Level.Item>
             <Level.Item>
               <Select.Container>
@@ -270,7 +269,7 @@ class App extends Component {
               <Button
                 onClick={this.timerStartPause}
                 style={{marginRight: '1em'}}>
-                {this.state.timer.paused ? '▶' : '❚❚'}{' '}
+                {this.state.timer.paused ? '▶' : '❚❚'}
               </Button>
               <TimerMachine
                 timeStart={60 * 1000} // Start at 60 seconds.
@@ -307,8 +306,7 @@ class App extends Component {
                         textColor="info"
                         textSize={5}
                         onClick={this.undo}>
-                        {' '}
-                        <FontAwesomeIcon icon={faUndo} />{' '}
+                        <FontAwesomeIcon icon={faUndo} />
                       </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
