@@ -250,7 +250,7 @@ class App extends Component {
         }}>
         <Container>
           <Level breakpoint="mobile">
-            <Level.Item textSize={3}>
+            <Level.Item>
               <img src={icon} alt="Icon" />
             </Level.Item>
             <Level.Item>
@@ -305,7 +305,6 @@ class App extends Component {
                       <Button
                         disabled={index == 0}
                         textColor="info"
-                        textSize={5}
                         onClick={this.undo}>
                         <FontAwesomeIcon icon={faUndo} />
                       </Button>
