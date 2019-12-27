@@ -17,8 +17,8 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
         <Card.Header>
           <Card.Header.Title
             align="centered"
-            style={{ background: "#1a86ce" }}
             textColor="white"
+            style={{ background: "#1a86ce" }}
           >
             {title}
           </Card.Header.Title>
