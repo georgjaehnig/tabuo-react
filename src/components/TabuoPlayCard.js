@@ -16,11 +16,9 @@ const TabuoPlayCard = ({ zIndex = 0, card }) => {
     ));
     content = (
       <div>
-        {" "}
         <List as="ul" style={{ lineHeight: "3.7vh" }}>
-          {" "}
-          {contentItems}{" "}
-        </List>{" "}
+          {contentItems}
+        </List>
       </div>
     );
     footer = card.author;
