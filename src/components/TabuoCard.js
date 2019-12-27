@@ -13,7 +13,7 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
         left: "5%",
         width: "90%",
         height: "65vh",
-        zIndex: zIndex,
+        zIndex: zIndex
       }}
     >
       <Card.Header>
@@ -31,7 +31,10 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
           <Card.Footer.Item
             align="centered"
             textSize={6}
-            style={{ fontStyle: "italic", background: "lightgrey" }}
+            style={{
+              fontStyle: "italic",
+              background: "lightgrey"
+            }}
           >
             {footer}
           </Card.Footer.Item>
