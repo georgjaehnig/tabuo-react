@@ -9,7 +9,7 @@ const TabuoPlayCard = ({ zIndex = 0, card }) => {
 
   if (card) {
     title = card.target;
-    let contentItems = card.taboos.map((item, key) => (
+    const contentItems = card.taboos.map((item, key) => (
       <List.Item as="li" key={key}>
         {item}
       </List.Item>
