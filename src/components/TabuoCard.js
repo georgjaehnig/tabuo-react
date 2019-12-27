@@ -8,34 +8,34 @@ const cardStyles = {
   top: 0,
   left: "5%",
   width: "90%",
-  height: "65vh",
+  height: "65vh"
 };
 
 const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
   return (
-      <Card textSize={4} style={{ ...cardStyles, zIndex }} >
-        <Card.Header>
-          <Card.Header.Title
+    <Card textSize={4} style={{ ...cardStyles, zIndex }}>
+      <Card.Header>
+        <Card.Header.Title
+          align="centered"
+          style={{ background: "#1a86ce" }}
+          textColor="white"
+        >
+          {title}
+        </Card.Header.Title>
+      </Card.Header>
+      <Card.Content textAlign="centered">{content}</Card.Content>
+      {footer && (
+        <Card.Footer>
+          <Card.Footer.Item
             align="centered"
-            style={{ background: "#1a86ce" }}
-            textColor="white"
+            textSize={6}
+            style={{ fontStyle: "italic", background: "lightgrey" }}
           >
-            {title}
-          </Card.Header.Title>
-        </Card.Header>
-        <Card.Content textAlign="centered">{content}</Card.Content>
-        {footer && (
-          <Card.Footer>
-            <Card.Footer.Item
-              align="centered"
-              textSize={6}
-              style={{ fontStyle: "italic", background: "lightgrey" }}
-            >
-              {footer}
-            </Card.Footer.Item>
-          </Card.Footer>
-        )}
-      </Card>
+            {footer}
+          </Card.Footer.Item>
+        </Card.Footer>
+      )}
+    </Card>
   );
 };
 
