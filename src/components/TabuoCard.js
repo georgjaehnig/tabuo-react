@@ -11,7 +11,7 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
         top: 0,
         left: "5%",
         width: "90%",
-        fontSize: "3.5vmax",
+        fontSize: "3.5vh",
         height: "65vh",
         zIndex: zIndex
       }}
@@ -27,7 +27,7 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
       </Card.Header>
       <Card.Content 
       textAlign="centered" 
-      style={{ padding: "3vmax" }}
+      style={{ padding: "3vh" }}
       >
         {content}
       </Card.Content>
@@ -41,7 +41,7 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
             position: "absolute",
             bottom: 0,
             width: "100%",
-            fontSize: "3vmax"
+            fontSize: "0.8em"
           }}
         >
           <Card.Footer.Item>{footer}</Card.Footer.Item>
