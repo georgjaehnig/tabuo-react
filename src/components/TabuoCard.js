@@ -27,17 +27,19 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
       </Card.Header>
       <Card.Content textAlign="centered">{content}</Card.Content>
       {footer && (
-        <Card.Footer>
-          <Card.Footer.Item
-            align="centered"
-            textSize={6}
-            style={{
-              fontStyle: "italic",
-              background: "lightgrey"
-            }}
-          >
-            {footer}
-          </Card.Footer.Item>
+        <Card.Footer
+          align="centered"
+          textSize={6}
+          style={{
+            borderTop: 0,
+            fontStyle: "italic",
+            background: "lightgrey",
+            position: "absolute",
+            bottom: 0,
+            width: "100%"
+          }}
+        >
+          <Card.Footer.Item>{footer}</Card.Footer.Item>
         </Card.Footer>
       )}
     </Card>
