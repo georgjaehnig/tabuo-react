@@ -249,7 +249,12 @@ class App extends Component {
           fontSize: "3.5vh",
         }}>
         <Container>
-          <Level breakpoint="mobile">
+          <Level
+            breakpoint="mobile"
+            style={{
+              fontSize: "3vh"
+            }}
+          >
             <Level.Item>
               <img src={icon} alt="Icon" />
             </Level.Item>
