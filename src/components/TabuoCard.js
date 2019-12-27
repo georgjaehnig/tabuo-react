@@ -25,10 +25,7 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
           {title}
         </Card.Header.Title>
       </Card.Header>
-      <Card.Content 
-      textAlign="centered" 
-      style={{ padding: "3vh" }}
-      >
+      <Card.Content textAlign="centered" style={{ padding: "3vh" }}>
         {content}
       </Card.Content>
       {footer && (
