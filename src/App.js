@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import icon from './images/icon.png';
+import React, { Component } from "react";
+import icon from "./images/icon.png";
 
-import arrayShuffle from 'array-shuffle';
-import Cards from './cards.js';
+import arrayShuffle from "array-shuffle";
+import Cards from "./cards.js";
 
-import 'rbx/index.sass';
-import '../src/App.sass';
+import "rbx/index.sass";
+import "../src/App.sass";
 
 import {
   Button,
@@ -15,27 +15,27 @@ import {
   Level,
   LevelItem,
   List,
-  Select,
-} from 'rbx';
+  Select
+} from "rbx";
 
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimesCircle,
   faCheckCircle,
   faUndo,
-  faSmileWink,
-} from '@fortawesome/free-solid-svg-icons';
+  faSmileWink
+} from "@fortawesome/free-solid-svg-icons";
 
-import SwipySwipeable from 'react-swipy';
-import TabuoCard from './components/TabuoCard';
-import TabuoPlayCard from './components/TabuoPlayCard';
-import TabuoButton from './components/TabuoButton';
+import SwipySwipeable from "react-swipy";
+import TabuoCard from "./components/TabuoCard";
+import TabuoPlayCard from "./components/TabuoPlayCard";
+import TabuoButton from "./components/TabuoButton";
 
-import TimerMachine from 'react-timer-machine';
+import TimerMachine from "react-timer-machine";
 
 const wrapperStyles = {
-  position: 'relative',
-  height: '70vh',
+  position: "relative",
+  height: "70vh"
 };
 
 class App extends Component {
@@ -44,17 +44,17 @@ class App extends Component {
     index: 0, // Index of current card.
     trace: [], // The trace of decisions (accept, reject - as bool)
     decision: undefined, // The current decision (accept, reject - as bool)
-    language: 'en',
+    language: "en",
     stats: {
       // Collecting stats of current round
       accepted: 0,
-      rejected: 0,
+      rejected: 0
     },
     timer: {
       started: false,
-      paused: false,
+      paused: false
     },
-    mode: 'start', // 'start', 'play' or 'wait'.
+    mode: "start" // 'start', 'play' or 'wait'.
   };
 
   // Undo an Accept or Reject.
@@ -75,18 +75,18 @@ class App extends Component {
   // Count the current decision,
   //   remember it in state.decision.
   swipe = direction => {
-    if (this.state.mode != 'play') {
+    if (this.state.mode != "play") {
       return;
     }
     switch (direction) {
-      case 'left':
+      case "left":
         this.setState(state => {
           state.decision = false;
           state.stats.rejected = state.stats.rejected + 1;
           return state;
         });
         break;
-      case 'right':
+      case "right":
         this.setState(state => {
           state.decision = true;
           state.stats.accepted = state.stats.accepted + 1;
@@ -98,10 +98,10 @@ class App extends Component {
 
   afterSwipe = () => {
     switch (this.state.mode) {
-      case 'start':
-      case 'roundDone':
+      case "start":
+      case "roundDone":
         this.setState(state => {
-          state.mode = 'play';
+          state.mode = "play";
           state.timer.started = true;
           state.stats.accepted = 0;
           state.stats.rejected = 0;
@@ -109,7 +109,7 @@ class App extends Component {
           return state;
         });
         break;
-      case 'play':
+      case "play":
         this.setState(state => {
           state.trace.push(state.decision);
           state.index++;
@@ -138,7 +138,7 @@ class App extends Component {
     this.setState(state => {
       state.timer.started = false;
       state.timer.paused = false;
-      state.mode = 'roundDone';
+      state.mode = "roundDone";
       // Increase index
       // so that next round starts with new card.
       state.index++;
@@ -147,11 +147,11 @@ class App extends Component {
   };
 
   changeLanguage = event => {
-    this.setState({language: event.target.value});
+    this.setState({ language: event.target.value });
   };
 
   render() {
-    const {cards, index, stats, trace, mode} = this.state;
+    const { cards, index, stats, trace, mode } = this.state;
 
     let firstCard, secondCard;
     let title, content;
@@ -159,7 +159,7 @@ class App extends Component {
     let texts = {
       en: {
         start: {
-          title: 'How to play',
+          title: "How to play",
           content: (
             <div>
               Explain the word to your team without using the taboos below.
@@ -169,10 +169,10 @@ class App extends Component {
                 <li>Swipe → to start.</li>
               </ul>
             </div>
-          ),
+          )
         },
         roundDone: {
-          title: 'Round ended',
+          title: "Round ended",
           content: (
             <div>
               <ul>
@@ -181,12 +181,12 @@ class App extends Component {
                 <li>Swipe → to restart.</li>
               </ul>
             </div>
-          ),
-        },
+          )
+        }
       },
       eo: {
         start: {
-          title: 'Kiel ludi',
+          title: "Kiel ludi",
           content: (
             <div>
               Klarigu la vorton al via(j) teamano(j) sen uzi la tabuojn sube.
@@ -195,10 +195,10 @@ class App extends Component {
                 <li>Je misŝovu alklaku la mezan butonon.</li>
               </ul>
             </div>
-          ),
+          )
         },
         roundDone: {
-          title: 'La rundo finiĝis',
+          title: "La rundo finiĝis",
           content: (
             <div>
               <ul>
@@ -207,30 +207,30 @@ class App extends Component {
                 <li>Ŝovu → por rekomenci.</li>
               </ul>
             </div>
-          ),
-        },
-      },
+          )
+        }
+      }
     };
 
     switch (mode) {
-      case 'start':
+      case "start":
         title = texts[this.state.language].start.title;
         content = texts[this.state.language].start.content;
         firstCard = <TabuoCard title={title} content={content} />;
         secondCard = <TabuoPlayCard zIndex={-1} card={cards[index]} />;
         break;
-      case 'play':
+      case "play":
         firstCard = <TabuoPlayCard card={cards[index]} />;
         {
           /* If there's at least one more card:
             stack it behind the visible card. */
         }
-        secondCard = '';
+        secondCard = "";
         if (cards.length - index + 1 > 1) {
           secondCard = <TabuoPlayCard zIndex={-1} card={cards[index + 1]} />;
         }
         break;
-      case 'roundDone':
+      case "roundDone":
         title = texts[this.state.language].roundDone.title;
         content = texts[this.state.language].roundDone.content;
         firstCard = <TabuoCard title={title} content={content} />;
@@ -241,23 +241,25 @@ class App extends Component {
     return (
       <div
         style={{
-          width: '100%',
-          position: 'absolute',
-          left: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -55%)',
-        }}>
+          width: "100%",
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -55%)"
+        }}
+      >
         <Container>
           <Level breakpoint="mobile">
             <Level.Item textSize={3}>
-              {' '}
-              <img src={icon} alt="Icon" />{' '}
+              {" "}
+              <img src={icon} alt="Icon" />{" "}
             </Level.Item>
             <Level.Item>
               <Select.Container>
                 <Select
                   value={this.state.language}
-                  onChange={this.changeLanguage}>
+                  onChange={this.changeLanguage}
+                >
                   <Select.Option value="en">English</Select.Option>
                   <Select.Option value="eo">Esperanto</Select.Option>
                 </Select>
@@ -265,12 +267,14 @@ class App extends Component {
             </Level.Item>
             <Level.Item
               style={{
-                visibility: this.state.mode == 'play' ? 'visible' : 'hidden',
-              }}>
+                visibility: this.state.mode == "play" ? "visible" : "hidden"
+              }}
+            >
               <Button
                 onClick={this.timerStartPause}
-                style={{marginRight: '1em'}}>
-                {this.state.timer.paused ? '▶' : '❚❚'}{' '}
+                style={{ marginRight: "1em" }}
+              >
+                {this.state.timer.paused ? "▶" : "❚❚"}{" "}
               </Button>
               <TimerMachine
                 timeStart={60 * 1000} // Start at 60 seconds.
@@ -290,8 +294,8 @@ class App extends Component {
             <div style={wrapperStyles}>
               <SwipySwipeable
                 min={500}
-                buttons={({left, right}) => (
-                  <Level breakpoint="mobile" style={{width: '100%'}}>
+                buttons={({ left, right }) => (
+                  <Level breakpoint="mobile" style={{ width: "100%" }}>
                     <Level.Item>
                       <TabuoButton
                         disabled={this.state.timer.paused}
@@ -306,9 +310,10 @@ class App extends Component {
                         disabled={index == 0}
                         textColor="info"
                         textSize={5}
-                        onClick={this.undo}>
-                        {' '}
-                        <FontAwesomeIcon icon={faUndo} />{' '}
+                        onClick={this.undo}
+                      >
+                        {" "}
+                        <FontAwesomeIcon icon={faUndo} />{" "}
                       </Button>
                     </Level.Item>
                     <Level.Item textColor="success">
@@ -323,7 +328,8 @@ class App extends Component {
                   </Level>
                 )}
                 onSwipe={this.swipe}
-                onAfterSwipe={this.afterSwipe}>
+                onAfterSwipe={this.afterSwipe}
+              >
                 {firstCard}
               </SwipySwipeable>
               {secondCard}
