@@ -4,7 +4,6 @@ import { Card } from "rbx";
 const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
   return (
     <Card
-      textSize={4}
       style={{
         cursor: "pointer",
         userSelect: "none",
@@ -12,6 +11,7 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
         top: 0,
         left: "5%",
         width: "90%",
+        fontSize: "3.5vmax",
         height: "65vh",
         zIndex: zIndex
       }}
@@ -25,18 +25,23 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
           {title}
         </Card.Header.Title>
       </Card.Header>
-      <Card.Content textAlign="centered">{content}</Card.Content>
+      <Card.Content 
+      textAlign="centered" 
+      style={{ padding: "3vmax" }}
+      >
+        {content}
+      </Card.Content>
       {footer && (
         <Card.Footer
           align="centered"
-          textSize={6}
           style={{
             borderTop: 0,
             fontStyle: "italic",
             background: "lightgrey",
             position: "absolute",
             bottom: 0,
-            width: "100%"
+            width: "100%",
+            fontSize: "3vmax"
           }}
         >
           <Card.Footer.Item>{footer}</Card.Footer.Item>
