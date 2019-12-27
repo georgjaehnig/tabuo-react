@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "rbx";
 
-const styles = {
+const cardStyles = {
   cursor: "pointer",
   userSelect: "none",
   position: "absolute",
@@ -13,7 +13,7 @@ const styles = {
 
 const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
   return (
-      <Card textSize={4} style={{ ...styles, zIndex }} >
+      <Card textSize={4} style={{ ...cardStyles, zIndex }} >
         <Card.Header>
           <Card.Header.Title
             align="centered"
