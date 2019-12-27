@@ -11,7 +11,6 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
         top: 0,
         left: "5%",
         width: "90%",
-        fontSize: "3.5vh",
         height: "65vh",
         zIndex: zIndex
       }}

@@ -246,6 +246,7 @@ class App extends Component {
           left: '50%',
           top: '50%',
           transform: 'translate(-50%, -55%)',
+          fontSize: "3.5vh",
         }}>
         <Container>
           <Level breakpoint="mobile">
