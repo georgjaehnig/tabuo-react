@@ -7,13 +7,13 @@ const cardStyles = {
   position: "absolute",
   top: 0,
   left: "5%",
-  width: "90%"
+  width: "90%",
+  height: "65vh",
 };
 
 const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
   return (
-    <div style={{ ...cardStyles, zIndex }}>
-      <Card textSize={4} style={{ height: "65vh" }}>
+      <Card textSize={4} style={{ ...cardStyles, zIndex }} >
         <Card.Header>
           <Card.Header.Title
             align="centered"
@@ -36,7 +36,6 @@ const TabuoCard = ({ zIndex = 0, title, content, footer }) => {
           </Card.Footer>
         )}
       </Card>
-    </div>
   );
 };
 
