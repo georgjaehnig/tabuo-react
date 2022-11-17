@@ -31,7 +31,7 @@
     "node-sass": "^4.12.0",
     "rbx": "^2.2.0",
     "react": "^16.8.6",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-swipy": "0.0.6",
     "react-timer-machine": "^1.0.2"
   },
